@@ -1,0 +1,134 @@
+{
+  "Home": {
+    "hero": {
+      "headlineStart": "Turning",
+      "headlineMiddle": "complex products",
+      "headlineSecondStart": "into",
+      "headlineEnd": "scalable systems.",
+      "description": "Product Designer with a focus on product strategy, systems thinking, and organizational alignment. Helping teams transform ambiguity into coherent experiences.",
+      "locationAria": "Location and timezone",
+      "location": "Almaty, KZ",
+      "timezone": "GMT +5",
+      "diagramAria": "Product thinking diagram",
+      "portraitAlt": "Black and white portrait of Herman Lewandowsky"
+    },
+    "work": {
+      "aria": "Selected work",
+      "hoverLabel": "View Case ->",
+      "tagsAriaSuffix": "tags",
+      "previewAltSuffix": "project preview",
+      "visualComingSoon": "Project visual coming soon"
+    },
+    "experience": {
+      "heading": "10 years of experience",
+      "headingAccent": "building products, systems, and teams at scale.",
+      "downloadCv": "Download CV",
+      "cvHref": "/files/cv/herman-lewandowsky-cv-en.pdf",
+      "cvFileName": "Herman_Lewandowsky_CV.pdf"
+    },
+    "expertise": {
+      "heading": "Core Expertise",
+      "gamificationAria": "Open Gamification page"
+    },
+    "systemPairs": [
+      { "from": "Complexity", "to": "Clarity" },
+      { "from": "Products", "to": "Systems" },
+      { "from": "Execution", "to": "Strategy" }
+    ],
+    "projects": [
+      {
+        "title": "BI Club",
+        "displayTitle": "BI Club - Loyalty app",
+        "year": "2025",
+        "role": "Lead Product Designer",
+        "tags": ["DSGN", "UX/UI", "GAMIFI"],
+        "challenge": "Turned post-purchase loyalty into a scalable engagement system across rewards, partners, and resident services.",
+        "cover": "/images/projects/home-covers/bi.png",
+        "caseUrl": "/case/bi-club"
+      },
+      {
+        "title": "Green Supermarket",
+        "displayTitle": "Retail Operations Platform",
+        "year": "2025",
+        "role": "Lead Product Designer",
+        "tags": ["OPS", "TASKS", "LOGISTIC"],
+        "challenge": "Unified store operations into one workflow for tasks, inventory, and product logistics across retail and warehouse teams.",
+        "cover": "/images/projects/home-covers/Lotus.png"
+      },
+      {
+        "title": "Uchi.ru",
+        "displayTitle": "Uchi.ru",
+        "year": "2020",
+        "role": "Senior Product Designer",
+        "tags": ["EDTECH", "ENGAGE", "GAMIFI"],
+        "challenge": "Turned learning engagement into a structured retention system through gamified mechanics and behavioral loops.",
+        "cover": "/images/projects/home-covers/uchi.png",
+        "caseUrl": "/case/uchi-ru"
+      },
+      {
+        "title": "Omega Finance",
+        "displayTitle": "Omega Finance",
+        "year": "2024",
+        "role": "Lead Product Designer",
+        "tags": ["FINTECH", "AI", "BANKING"],
+        "challenge": "Shaped a modern banking app experience for a smaller bank competing on clarity, trust, and product quality.",
+        "cover": "/images/projects/home-covers/omega.png"
+      },
+      {
+        "title": "Grabr",
+        "displayTitle": "Grabr",
+        "year": "2019",
+        "role": "Senior Product Designer",
+        "tags": ["MARKET", "ECOM", "GMV"],
+        "challenge": "Redesigned the marketplace journey into a clearer commerce flow, improving the funnel toward higher GMV.",
+        "cover": "/images/projects/home-covers/grabr.png",
+        "caseUrl": "/case/grabr"
+      }
+    ],
+    "experienceItems": [
+      { "company": "Prizma Tech", "role": "Product Design Lead", "years": "2024-2026" },
+      { "company": "XLA", "role": "Senior Product Designer", "years": "2022-2023" },
+      { "company": "Uchi.ru", "role": "Senior Product Designer", "years": "2019-2022" },
+      { "company": "Grabr", "role": "Senior Product Designer", "years": "2018-2019" },
+      { "company": "Sellpolab", "role": "Co-Founder / UX/UI", "years": "2016-2018" }
+    ],
+    "expertiseItems": [
+      { "title": "Product Strategy", "description": "Defining vision, priorities, and product outcomes." },
+      { "title": "Design Systems", "description": "Scaling product quality through systems thinking." },
+      { "title": "Behavior Design", "description": "Shaping user habits and decision-making." },
+      { "title": "Gamification", "description": "Increasing engagement with behavioral mechanics." },
+      { "title": "Growth & Retention", "description": "Driving sustainable product growth metrics." },
+      { "title": "AI Products", "description": "Creating intuitive experiences for AI systems." },
+      { "title": "Product Discovery", "description": "Reducing risk through evidence-based decisions." },
+      { "title": "Cross-functional Leadership", "description": "Leading teams across design and product." },
+      { "title": "Design Operations", "description": "Enabling efficient and scalable design execution." }
+    ]
+  },
+  "Navigation": {
+    "brand": "Herman Lewandowsky",
+    "back": "← Back",
+    "backAria": "Back to work",
+    "homeAria": "Go to homepage",
+    "primaryAria": "Primary navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact",
+    "languageSwitcherAria": "Language switcher",
+    "currentLanguage": "EN",
+    "futureLanguage": "RU",
+    "futureLanguageAria": "Russian version coming later"
+  },
+  "Contact": {
+    "headingLead": "Let's",
+    "headingRest": "Connect",
+    "bodyLine1": "Feel free to contact me if having any questions.",
+    "bodyLine2": "I'm available for new projects or just for chatting.",
+    "linksAria": "Contact links",
+    "telegram": "Telegram",
+    "email": "Send an Email",
+    "linkedin": "LinkedIn",
+    "credit": "Herman Lewandowsky, 2026"
+  }
+}
