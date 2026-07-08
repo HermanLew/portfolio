@@ -53,7 +53,8 @@
         "role": "Lead Product Designer",
         "tags": ["OPS", "TASKS", "LOGISTIC"],
         "challenge": "Unified store operations into one workflow for tasks, inventory, and product logistics across retail and warehouse teams.",
-        "cover": "/images/projects/home-covers/Lotus.png"
+        "cover": "/images/projects/home-covers/Lotus.png",
+        "caseUrl": "/case/green-supermarket"
       },
       {
         "title": "Uchi.ru",

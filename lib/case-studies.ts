@@ -545,9 +545,9 @@ export const caseStudies: CaseStudy[] = [
     tags: ["RETAIL OPS", "MOBILE", "SYSTEMS"],
     summary:
       "Turning a scanner replacement initiative into a scalable operating platform for store execution, inventory workflows, task management, and manager visibility across 900+ retail locations.",
-    cover: "/images/projects/covers/Lotus.png",
+    cover: "/images/projects/green-supermarket/1.png",
     info: [
-      { label: "client", value: "Green Supermarket" },
+      { label: "client", value: "LOTUS'S" },
       { label: "year", value: "2025" },
       { label: "role", value: "Product Design Lead" },
       { label: "scale", value: "900+ stores" },
@@ -569,6 +569,7 @@ export const caseStudies: CaseStudy[] = [
         "The visible request was to replace dedicated handheld scanners. Discovery revealed a deeper operational problem: store teams depended on fragmented tools, disconnected workflows, and limited visibility to complete everyday work.",
       solution:
         "We reframed the initiative as a platform transformation. Instead of recreating scanner behavior on a phone, the product unified task management, scanning, inventory workflows, and operational oversight within a shared mobile architecture.",
+      image: "/images/projects/green-supermarket/2.png",
     },
     industryContext: {
       label: "BUSINESS PROBLEM",
@@ -585,6 +586,7 @@ export const caseStudies: CaseStudy[] = [
       text:
         "Daily execution was split across separate tools. Employees switched context to finish routine tasks, while managers could see individual processes but not the full operational picture. As new workflows were added, complexity grew faster than the platform could support.",
       visualLabel: "Transformation diagram: scanner replacement to operational platform",
+      image: "/images/projects/green-supermarket/3.png",
     },
     shaping: {
       label: "DISCOVERY INSIGHTS",
@@ -615,6 +617,7 @@ export const caseStudies: CaseStudy[] = [
         title: "The product strategy shifted from tools to operating model.",
         description:
           "The goal became one device, one application, and one operational platform: a system that could absorb new workflows without increasing cognitive load for store teams.",
+        image: "/images/projects/green-supermarket/4.png",
       },
     },
     engagementLoop: {
@@ -637,24 +640,28 @@ export const caseStudies: CaseStudy[] = [
           text:
             "Customer Happiness and Daily Revenue became shared operational indicators, helping employees connect daily execution with business performance.",
           visualLabel: "Store performance and priority dashboard placeholder",
+          image: "/images/projects/green-supermarket/5.png",
         },
         {
           title: "Tasks before navigation",
           text:
             "Associates entered a prioritized queue instead of a generic menu, reducing the effort needed to understand what mattered now.",
           visualLabel: "Prioritized execution queue placeholder",
+          image: "/images/projects/green-supermarket/6.png",
         },
         {
           title: "Operational tools inside workflows",
           text:
             "Scanning, inventory checks, label printing, and price verification became steps inside work rather than separate destinations.",
           visualLabel: "Embedded scanning and inventory workflow placeholder",
+          image: "/images/projects/green-supermarket/7.png",
         },
         {
           title: "Manager oversight by exception",
           text:
             "Managers received a dashboard focused on workload distribution, bottlenecks, and unresolved operational issues instead of raw activity noise.",
           visualLabel: "Manager operational dashboard placeholder",
+          image: "/images/projects/green-supermarket/8.png",
         },
       ],
     },
@@ -678,6 +685,7 @@ export const caseStudies: CaseStudy[] = [
         { constraint: "Existing processes", response: "Supported current operations while leaving room to simplify later" },
         { constraint: "Future automation", response: "Prepared the architecture for AI-assisted workflows without forcing premature features" },
       ],
+      image: "/images/projects/green-supermarket/9.png",
     },
     scaling: {
       label: "PLATFORM ARCHITECTURE",
@@ -690,21 +698,25 @@ export const caseStudies: CaseStudy[] = [
           title: "Core domains",
           text: "Dashboard, Tasks, Operations, Inventory, Scanning, Performance, Notifications, and Profile gave every workflow a clear place in the system.",
           visualLabel: "Eight-domain platform architecture placeholder",
+          image: "/images/projects/green-supermarket/10.png",
         },
         {
           title: "Reusable interaction patterns",
           text: "Recurring execution patterns were standardized so new operational workflows could be added without retraining employees on every process.",
           visualLabel: "Reusable workflow pattern placeholder",
+          image: "/images/projects/green-supermarket/11.png",
         },
         {
           title: "Design system foundations",
           text: "Shared components and interaction rules across Android and desktop reduced implementation ambiguity and supported a consistent operational experience.",
           visualLabel: "Retail operations design system placeholder",
+          image: "/images/projects/green-supermarket/12.png",
         },
         {
           title: "Automation readiness",
           text: "The architecture was prepared for future process automation and AI-assisted operations without adding disconnected AI features too early.",
           visualLabel: "Automation readiness placeholder",
+          image: "/images/projects/green-supermarket/13.png",
         },
       ],
     },

@@ -281,7 +281,7 @@ function ProjectVisual({
 }) {
   const t = useTranslations("Home.work");
   const hasUpdatingInfoLabel =
-    project.title === "Green Supermarket" || project.title === "Omega Finance";
+    project.title === "Omega Finance";
   const visual = (
     <>
       {project.cover ? (
