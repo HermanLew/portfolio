@@ -9,20 +9,24 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function NotFound() {
+  const gifTiles = Array.from({ length: 8 }, (_, index) => index);
+
   return (
     <main className="not-found-page">
       <SiteHeader />
       <section className="not-found-content section-shell">
         <div className="not-found-gif" aria-hidden="true">
-          <iframe
-            src="https://giphy.com/embed/Lny6Rw04nsOOc"
-            width="480"
-            height="360"
-            frameBorder="0"
-            className="giphy-embed"
-            allowFullScreen
-            title="404 terminal animation"
-          />
+          <div className="not-found-gif-strip">
+            {gifTiles.map((tile) => (
+              <img
+                key={tile}
+                src="https://media.giphy.com/media/Lny6Rw04nsOOc/giphy.gif"
+                width="480"
+                height="360"
+                alt=""
+              />
+            ))}
+          </div>
         </div>
         <h1>404: Page not Found</h1>
         <div className="not-found-actions">
