@@ -5,9 +5,24 @@ import type {
   CaseSlide,
   CaseStudy,
 } from "@/lib/case-studies";
-import { projects } from "@/lib/content";
 import { CaseDotsNav } from "./case-dots-nav";
 import { CaseHorizontalScroller } from "./case-horizontal-scroller";
+
+type CaseLabels = {
+  challenge: string;
+  solution: string;
+  constraint: string;
+  designResponse: string;
+  moreProjects: string;
+};
+
+type ProjectItem = {
+  title: string;
+  displayTitle: string;
+  year: string;
+  tags: string[];
+  caseUrl?: string;
+};
 
 export function CaseStickyDots({ sections }: { sections: Array<{ id: string; label: string }> }) {
   return <CaseDotsNav sections={sections} />;
@@ -60,12 +75,18 @@ export function CaseHero({ study }: { study: CaseStudy }) {
   );
 }
 
-export function ChallengeSolution({ study }: { study: CaseStudy }) {
+export function ChallengeSolution({
+  study,
+  labels,
+}: {
+  study: CaseStudy;
+  labels: CaseLabels;
+}) {
   return (
     <section className="case-section case-challenge-solution section-shell" id="challenge-solution">
       <div className="case-two-column">
-        <ArticleBlock label="Challenge" text={study.challengeSolution.challenge} />
-        <ArticleBlock label="Solution" text={study.challengeSolution.solution} />
+        <ArticleBlock label={labels.challenge} text={study.challengeSolution.challenge} />
+        <ArticleBlock label={labels.solution} text={study.challengeSolution.solution} />
       </div>
       <CaseVisual
         image={study.challengeSolution.image}
@@ -168,7 +189,13 @@ export function EngagementLoop({ study }: { study: CaseStudy }) {
   );
 }
 
-export function ConstraintsSection({ study }: { study: CaseStudy }) {
+export function ConstraintsSection({
+  study,
+  labels,
+}: {
+  study: CaseStudy;
+  labels: CaseLabels;
+}) {
   return (
     <section className="case-section case-constraints section-shell" id="constraints">
       <p className="case-label">{study.constraints.label}</p>
@@ -179,7 +206,7 @@ export function ConstraintsSection({ study }: { study: CaseStudy }) {
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
-        <ConstraintTable rows={study.constraints.table} />
+        <ConstraintTable rows={study.constraints.table} labels={labels} />
       </div>
       <CaseVisual
         image={study.constraints.image}
@@ -240,7 +267,7 @@ export function LearningsSection({ study }: { study: CaseStudy }) {
   );
 }
 
-function getProjectHref(project: (typeof projects)[number]) {
+function getProjectHref(project: ProjectItem) {
   if ("caseUrl" in project && project.caseUrl) return project.caseUrl;
 
   const slug = project.title
@@ -251,14 +278,22 @@ function getProjectHref(project: (typeof projects)[number]) {
   return `/case/${slug}`;
 }
 
-export function MoreProjects({ currentCaseUrl }: { currentCaseUrl: string }) {
+export function MoreProjects({
+  currentCaseUrl,
+  labels,
+  projects,
+}: {
+  currentCaseUrl: string;
+  labels: CaseLabels;
+  projects: ProjectItem[];
+}) {
   const relatedProjects = projects
     .filter((project) => getProjectHref(project) !== currentCaseUrl)
     .slice(0, 4);
 
   return (
     <section className="case-section more-projects section-shell" aria-labelledby="more-projects-title">
-      <h2 id="more-projects-title">More Projects</h2>
+      <h2 id="more-projects-title">{labels.moreProjects}</h2>
       <div className="more-projects-grid">
         {relatedProjects.map((project) => (
           <a
@@ -321,12 +356,18 @@ function VerticalSnapSlides({ slides }: { slides: CaseSlide[] }) {
   );
 }
 
-function ConstraintTable({ rows }: { rows: CaseConstraint[] }) {
+function ConstraintTable({
+  rows,
+  labels,
+}: {
+  rows: CaseConstraint[];
+  labels: CaseLabels;
+}) {
   return (
     <div className="case-table" role="table">
       <div className="case-table-row case-table-head" role="row">
-        <span role="columnheader">Constraint</span>
-        <span role="columnheader">Design Response</span>
+        <span role="columnheader">{labels.constraint}</span>
+        <span role="columnheader">{labels.designResponse}</span>
       </div>
       {rows.map((row) => (
         <div className="case-table-row" role="row" key={row.constraint}>

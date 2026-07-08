@@ -14,10 +14,12 @@
     },
     "work": {
       "aria": "Selected work",
+      "heading": "Case Studies",
       "hoverLabel": "View Case ->",
       "tagsAriaSuffix": "tags",
       "previewAltSuffix": "project preview",
-      "visualComingSoon": "Project visual coming soon"
+      "visualComingSoon": "Project visual coming soon",
+      "updatingLabel": "Case in the process of updating"
     },
     "experience": {
       "heading": "10 years of experience",
@@ -73,7 +75,8 @@
         "role": "Lead Product Designer",
         "tags": ["FINTECH", "AI", "BANKING"],
         "challenge": "Shaped a modern banking app experience for a smaller bank competing on clarity, trust, and product quality.",
-        "cover": "/images/projects/home-covers/omega.png"
+        "cover": "/images/projects/home-covers/omega.png",
+        "isUpdating": true
       },
       {
         "title": "Grabr",
@@ -97,7 +100,7 @@
       { "title": "Product Strategy", "description": "Defining vision, priorities, and product outcomes." },
       { "title": "Design Systems", "description": "Scaling product quality through systems thinking." },
       { "title": "Behavior Design", "description": "Shaping user habits and decision-making." },
-      { "title": "Gamification", "description": "Increasing engagement with behavioral mechanics." },
+      { "title": "Gamification", "description": "Increasing engagement with behavioral mechanics.", "key": "gamification" },
       { "title": "Growth & Retention", "description": "Driving sustainable product growth metrics." },
       { "title": "AI Products", "description": "Creating intuitive experiences for AI systems." },
       { "title": "Product Discovery", "description": "Reducing risk through evidence-based decisions." },
@@ -118,8 +121,7 @@
     "contact": "Contact",
     "languageSwitcherAria": "Language switcher",
     "currentLanguage": "EN",
-    "futureLanguage": "RU",
-    "futureLanguageAria": "Russian version coming later"
+    "futureLanguage": "RU"
   },
   "Contact": {
     "headingLead": "Let's",
@@ -131,5 +133,34 @@
     "email": "Send an Email",
     "linkedin": "LinkedIn",
     "credit": "Herman Lewandowsky, 2026"
+  },
+  "Case": {
+    "orientation": "I recommend viewing case studies in landscape orientation.",
+    "sections": {
+      "hero": "Hero",
+      "challenge": "Challenge",
+      "context": "Context",
+      "strategy": "Strategy",
+      "loop": "Loop",
+      "constraints": "Constraints",
+      "scaling": "Scaling",
+      "impact": "Impact",
+      "learnings": "Learnings"
+    },
+    "labels": {
+      "challenge": "Challenge",
+      "solution": "Solution",
+      "constraint": "Constraint",
+      "designResponse": "Design Response",
+      "moreProjects": "More Projects"
+    }
+  },
+  "Game": {
+    "metadataTitle": "Gamification - Herman Lewandowsky",
+    "metadataDescription": "A small Space Invaders interaction inside Herman Lewandowsky's product design portfolio.",
+    "aria": "Space Invaders game",
+    "desktopTitle": "Space Invaders",
+    "mobileTitle": "Sasquash",
+    "instructions": "ARROWS - move, SPACE - fire. Have fun!"
   }
 }

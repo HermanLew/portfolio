@@ -1,0 +1,166 @@
+{
+  "Home": {
+    "hero": {
+      "headlineStart": "Превращаю",
+      "headlineMiddle": "сложные продукты",
+      "headlineSecondStart": "в",
+      "headlineEnd": "масштабируемые системы.",
+      "description": "Product Designer с фокусом на продуктовую стратегию, системное мышление и выравнивание команд. Помогаю превращать неопределенность в цельные цифровые продукты.",
+      "locationAria": "Локация и часовой пояс",
+      "location": "Алматы, KZ",
+      "timezone": "GMT +5",
+      "diagramAria": "Диаграмма продуктового мышления",
+      "portraitAlt": "Черно-белый портрет Германа Левандовского"
+    },
+    "work": {
+      "aria": "Избранные проекты",
+      "heading": "Кейсы",
+      "hoverLabel": "Смотреть кейс ->",
+      "tagsAriaSuffix": "теги",
+      "previewAltSuffix": "превью проекта",
+      "visualComingSoon": "Превью проекта скоро появится",
+      "updatingLabel": "Кейс обновляется"
+    },
+    "experience": {
+      "heading": "10 лет опыта",
+      "headingAccent": "в создании продуктов, систем и команд на масштабе.",
+      "downloadCv": "Скачать CV",
+      "cvHref": "/files/cv/herman-lewandowsky-cv-en.pdf",
+      "cvFileName": "Herman_Lewandowsky_CV.pdf"
+    },
+    "expertise": {
+      "heading": "Ключевая экспертиза",
+      "gamificationAria": "Открыть страницу с игрой"
+    },
+    "systemPairs": [
+      { "from": "Сложность", "to": "Ясность" },
+      { "from": "Продукты", "to": "Системы" },
+      { "from": "Исполнение", "to": "Стратегия" }
+    ],
+    "projects": [
+      {
+        "title": "BI Club",
+        "displayTitle": "BI Club - приложение лояльности",
+        "year": "2025",
+        "role": "Lead Product Designer",
+        "tags": ["DSGN", "UX/UI", "GAMIFI"],
+        "challenge": "Превратил постпокупочную лояльность в масштабируемую систему вовлечения вокруг наград, партнеров и сервисов для жителей.",
+        "cover": "/images/projects/home-covers/bi.png",
+        "caseUrl": "/case/bi-club"
+      },
+      {
+        "title": "Green Supermarket",
+        "displayTitle": "Платформа розничных операций",
+        "year": "2025",
+        "role": "Lead Product Designer",
+        "tags": ["OPS", "TASKS", "LOGISTIC"],
+        "challenge": "Объединил store operations в единый рабочий процесс для задач, инвентаря и продуктовой логистики.",
+        "cover": "/images/projects/home-covers/Lotus.png",
+        "caseUrl": "/case/green-supermarket"
+      },
+      {
+        "title": "Uchi.ru",
+        "displayTitle": "Uchi.ru",
+        "year": "2020",
+        "role": "Senior Product Designer",
+        "tags": ["EDTECH", "ENGAGE", "GAMIFI"],
+        "challenge": "Собрал систему удержания и вовлечения через игровые механики, поведенческие циклы и LiveOps.",
+        "cover": "/images/projects/home-covers/uchi.png",
+        "caseUrl": "/case/uchi-ru"
+      },
+      {
+        "title": "Omega Finance",
+        "displayTitle": "Omega Finance",
+        "year": "2024",
+        "role": "Lead Product Designer",
+        "tags": ["FINTECH", "AI", "BANKING"],
+        "challenge": "Сформировал современный мобильный банк, который конкурирует через ясность, доверие и качество продукта.",
+        "cover": "/images/projects/home-covers/omega.png",
+        "isUpdating": true
+      },
+      {
+        "title": "Grabr",
+        "displayTitle": "Grabr",
+        "year": "2019",
+        "role": "Senior Product Designer",
+        "tags": ["MARKET", "ECOM", "GMV"],
+        "challenge": "Пересобрал marketplace journey в более понятный commerce flow, снижая трение на пути к GMV.",
+        "cover": "/images/projects/home-covers/grabr.png",
+        "caseUrl": "/case/grabr"
+      }
+    ],
+    "experienceItems": [
+      { "company": "Prizma Tech", "role": "Product Design Lead", "years": "2024-2026" },
+      { "company": "XLA", "role": "Senior Product Designer", "years": "2022-2023" },
+      { "company": "Uchi.ru", "role": "Senior Product Designer", "years": "2019-2022" },
+      { "company": "Grabr", "role": "Senior Product Designer", "years": "2018-2019" },
+      { "company": "Sellpolab", "role": "Co-Founder / UX/UI", "years": "2016-2018" }
+    ],
+    "expertiseItems": [
+      { "title": "Продуктовая стратегия", "description": "Определение видения, приоритетов и продуктовых результатов." },
+      { "title": "Дизайн-системы", "description": "Масштабирование качества продукта через системный подход." },
+      { "title": "Поведенческий дизайн", "description": "Формирование привычек и пользовательских решений." },
+      { "title": "Геймификация", "description": "Рост вовлечения через поведенческие механики.", "key": "gamification" },
+      { "title": "Рост и удержание", "description": "Работа с устойчивым ростом продуктовых метрик." },
+      { "title": "AI-продукты", "description": "Создание понятного опыта для AI-систем." },
+      { "title": "Product Discovery", "description": "Снижение рисков через проверку гипотез." },
+      { "title": "Кросс-функциональное лидерство", "description": "Ведение команд на стыке дизайна, продукта и разработки." },
+      { "title": "Design Operations", "description": "Настройка эффективной и масштабируемой дизайн-практики." }
+    ]
+  },
+  "Navigation": {
+    "brand": "Herman Lewandowsky",
+    "back": "← Назад",
+    "backAria": "Вернуться к проектам",
+    "homeAria": "На главную",
+    "primaryAria": "Основная навигация",
+    "openMenu": "Открыть меню",
+    "closeMenu": "Закрыть меню",
+    "work": "Работы",
+    "about": "Обо мне",
+    "contact": "Контакты",
+    "languageSwitcherAria": "Переключатель языка",
+    "currentLanguage": "RU",
+    "futureLanguage": "EN"
+  },
+  "Contact": {
+    "headingLead": "Давайте",
+    "headingRest": "свяжемся",
+    "bodyLine1": "Напишите мне, если есть вопросы.",
+    "bodyLine2": "Я открыт к новым проектам и обычному разговору.",
+    "linksAria": "Контактные ссылки",
+    "telegram": "Telegram",
+    "email": "Написать на email",
+    "linkedin": "LinkedIn",
+    "credit": "Herman Lewandowsky, 2026"
+  },
+  "Case": {
+    "orientation": "Кейсы лучше смотреть в горизонтальной ориентации.",
+    "sections": {
+      "hero": "Герой",
+      "challenge": "Задача",
+      "context": "Контекст",
+      "strategy": "Стратегия",
+      "loop": "Цикл",
+      "constraints": "Ограничения",
+      "scaling": "Масштаб",
+      "impact": "Результат",
+      "learnings": "Выводы"
+    },
+    "labels": {
+      "challenge": "Задача",
+      "solution": "Решение",
+      "constraint": "Ограничение",
+      "designResponse": "Дизайн-ответ",
+      "moreProjects": "Другие проекты"
+    }
+  },
+  "Game": {
+    "metadataTitle": "Геймификация - Herman Lewandowsky",
+    "metadataDescription": "Небольшая игровая интеракция внутри портфолио продуктового дизайнера Германа Левандовского.",
+    "aria": "Игра Space Invaders",
+    "desktopTitle": "Space Invaders",
+    "mobileTitle": "Sasquash",
+    "instructions": "СТРЕЛКИ - движение, SPACE - огонь. Развлекайтесь!"
+  }
+}

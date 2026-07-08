@@ -160,13 +160,20 @@ button {
   font-size: 16px;
 }
 
-.language-switcher span:first-child {
-  color: rgba(244, 244, 241, 0.9);
+.language-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .language-switcher button {
-  cursor: not-allowed;
-  color: rgba(244, 244, 241, 0.38);
+  cursor: pointer;
+  color: rgba(244, 244, 241, 0.42);
+}
+
+.language-switcher button[aria-current="true"] {
+  cursor: default;
+  color: rgba(244, 244, 241, 0.9);
 }
 
 .hero-section {
@@ -1521,6 +1528,13 @@ button {
 
 .case-rich-text p {
   margin: 0;
+}
+
+.case-constraints .case-rich-text {
+  display: flex;
+  align-self: start;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .case-feature-row {

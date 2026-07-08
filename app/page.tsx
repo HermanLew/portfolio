@@ -5,8 +5,7 @@ import Link from "next/link";
 import type { CSSProperties, MouseEvent, RefObject } from "react";
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { useTranslations } from "next-intl";
-import { expertise, experience, projects, systemPairs } from "@/lib/content";
+import { useMessages, useTranslations } from "next-intl";
 import { ContactSection, SiteHeader } from "@/app/shared-ui";
 
 const fadeUp = {
@@ -14,8 +13,43 @@ const fadeUp = {
   visible: { opacity: 1, y: 0 },
 };
 
+type ProjectItem = {
+  title: string;
+  displayTitle: string;
+  year: string;
+  role: string;
+  tags: string[];
+  challenge: string;
+  cover: string;
+  caseUrl?: string;
+  isUpdating?: boolean;
+};
+
+type ExperienceItem = {
+  company: string;
+  role: string;
+  years: string;
+};
+
+type ExpertiseItem = {
+  title: string;
+  description: string;
+  key?: string;
+};
+
+type HomeMessages = {
+  Home: {
+    systemPairs: Array<{ from: string; to: string }>;
+    projects: ProjectItem[];
+    experienceItems: ExperienceItem[];
+    expertiseItems: ExpertiseItem[];
+  };
+};
+
 export default function Home() {
   const reduceMotion = useReducedMotion();
+  const messages = useMessages() as unknown as HomeMessages;
+  const home = messages.Home;
   const expertiseRef = useRef<HTMLElement | null>(null);
   const expertiseTrackRef = useRef<HTMLDivElement | null>(null);
   const heroDescriptionRef = useRef<HTMLParagraphElement | null>(null);
@@ -98,10 +132,15 @@ export default function Home() {
         descriptionFill={descriptionFill}
         descriptionRef={heroDescriptionRef}
         reduceMotion={Boolean(reduceMotion)}
+        systemPairs={home.systemPairs}
       />
       <WorkSection reduceMotion={Boolean(reduceMotion)} />
-      <ExperienceSection reduceMotion={Boolean(reduceMotion)} />
+      <ExperienceSection
+        experience={home.experienceItems}
+        reduceMotion={Boolean(reduceMotion)}
+      />
       <ExpertiseSection
+        expertise={home.expertiseItems}
         refElement={expertiseRef}
         trackRef={expertiseTrackRef}
         translate={expertiseTranslate}
@@ -117,10 +156,12 @@ function HeroSection({
   descriptionFill,
   descriptionRef,
   reduceMotion,
+  systemPairs,
 }: {
   descriptionFill: number;
   descriptionRef: RefObject<HTMLParagraphElement | null>;
   reduceMotion: boolean;
+  systemPairs: Array<{ from: string; to: string }>;
 }) {
   const t = useTranslations("Home.hero");
   const heroDescription = t("description");
@@ -203,6 +244,8 @@ function HeroSection({
 
 function WorkSection({ reduceMotion }: { reduceMotion: boolean }) {
   const t = useTranslations("Home.work");
+  const messages = useMessages() as unknown as HomeMessages;
+  const projects = messages.Home.projects;
 
   return (
     <section
@@ -211,7 +254,7 @@ function WorkSection({ reduceMotion }: { reduceMotion: boolean }) {
       aria-label={t("aria")}
     >
       <div className="work-section-heading section-shell">
-        <h2>Case Studies</h2>
+        <h2>{t("heading")}</h2>
       </div>
       <div className="work-snap">
         {projects.map((project) => {
@@ -276,12 +319,11 @@ function ProjectVisual({
   project,
   reduceMotion,
 }: {
-  project: (typeof projects)[number];
+  project: ProjectItem;
   reduceMotion: boolean;
 }) {
   const t = useTranslations("Home.work");
-  const hasUpdatingInfoLabel =
-    project.title === "Omega Finance";
+  const hasUpdatingInfoLabel = Boolean(project.isUpdating);
   const visual = (
     <>
       {project.cover ? (
@@ -294,7 +336,7 @@ function ProjectVisual({
             sizes="(max-width: 768px) 92vw, 48vw"
           />
           {hasUpdatingInfoLabel ? (
-            <span className="project-status-label">Case in the process of updating</span>
+            <span className="project-status-label">{t("updatingLabel")}</span>
           ) : null}
         </>
       ) : (
@@ -331,7 +373,13 @@ function ProjectVisual({
   return <motion.div {...commonProps}>{visual}</motion.div>;
 }
 
-function ExperienceSection({ reduceMotion }: { reduceMotion: boolean }) {
+function ExperienceSection({
+  experience,
+  reduceMotion,
+}: {
+  experience: ExperienceItem[];
+  reduceMotion: boolean;
+}) {
   const t = useTranslations("Home.experience");
 
   return (
@@ -369,12 +417,14 @@ function ExperienceSection({ reduceMotion }: { reduceMotion: boolean }) {
 }
 
 function ExpertiseSection({
+  expertise,
   refElement,
   trackRef,
   translate,
   height,
   reduceMotion,
 }: {
+  expertise: ExpertiseItem[];
   refElement: React.RefObject<HTMLElement | null>;
   trackRef: React.RefObject<HTMLDivElement | null>;
   translate: number;
@@ -412,11 +462,11 @@ function ExpertiseCard({
   item,
   index,
 }: {
-  item: (typeof expertise)[number];
+  item: ExpertiseItem;
   index: number;
 }) {
   const t = useTranslations("Home.expertise");
-  const isGamification = item.title === "Gamification";
+  const isGamification = item.key === "gamification";
   const content = (
     <>
       <span className="expertise-number">

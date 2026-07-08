@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const fadeUp = {
@@ -41,9 +42,12 @@ export function SiteHeader({ variant = "default" }: { variant?: "default" | "cas
         aria-label={t("primaryAria")}
       >
         {isCase ? (
-          <a href="#contact" onClick={() => setIsMenuOpen(false)}>
-            {t("contact")}
-          </a>
+          <>
+            <a href="#contact" onClick={() => setIsMenuOpen(false)}>
+              {t("contact")}
+            </a>
+            <LanguageSwitcher onSwitch={() => setIsMenuOpen(false)} />
+          </>
         ) : (
           <>
             <a href="/#work" onClick={() => setIsMenuOpen(false)}>
@@ -55,17 +59,49 @@ export function SiteHeader({ variant = "default" }: { variant?: "default" | "cas
             <a href="/#contact" onClick={() => setIsMenuOpen(false)}>
               {t("contact")}
             </a>
-            <div className="language-switcher" aria-label={t("languageSwitcherAria")}>
-              <span aria-current="true">{t("currentLanguage")}</span>
-              <span aria-hidden="true">/</span>
-              <button type="button" aria-label={t("futureLanguageAria")}>
-                {t("futureLanguage")}
-              </button>
-            </div>
+            <LanguageSwitcher onSwitch={() => setIsMenuOpen(false)} />
           </>
         )}
       </nav>
     </header>
+  );
+}
+
+function LanguageSwitcher({ onSwitch }: { onSwitch: () => void }) {
+  const locale = useLocale();
+  const router = useRouter();
+  const t = useTranslations("Navigation");
+  const languages = [
+    { locale: "en", label: "EN" },
+    { locale: "ru", label: "RU" },
+  ];
+
+  const switchLocale = (nextLocale: string) => {
+    document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000; SameSite=Lax`;
+    onSwitch();
+    router.refresh();
+  };
+
+  return (
+    <div className="language-switcher" aria-label={t("languageSwitcherAria")}>
+      {languages.map((language, index) => {
+        const isActive = locale === language.locale;
+
+        return (
+          <span className="language-option" key={language.locale}>
+            <button
+              type="button"
+              aria-current={isActive ? "true" : undefined}
+              disabled={isActive}
+              onClick={() => switchLocale(language.locale)}
+            >
+              {language.label}
+            </button>
+            {index < languages.length - 1 ? <span aria-hidden="true">/</span> : null}
+          </span>
+        );
+      })}
+    </div>
   );
 }
 

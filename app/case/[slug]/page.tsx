@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import { ContactSection, SiteHeader } from "@/app/shared-ui";
 import type { CaseSectionKey, CaseStudy } from "@/lib/case-studies";
 import { caseStudies, getCaseStudy } from "@/lib/case-studies";
+import { localizeCaseStudy } from "@/lib/case-study-localization";
 import { createPageMetadata } from "@/lib/metadata";
 import {
   CaseHero,
@@ -18,6 +20,19 @@ import {
   ShapingProduct,
 } from "./case-study-components";
 
+type ProjectItem = {
+  title: string;
+  displayTitle: string;
+  year: string;
+  tags: string[];
+  caseUrl?: string;
+};
+type Messages = {
+  Home: {
+    projects: ProjectItem[];
+  };
+};
+
 const defaultSectionOrder: CaseSectionKey[] = [
   "challengeSolution",
   "industryContext",
@@ -29,15 +44,15 @@ const defaultSectionOrder: CaseSectionKey[] = [
   "learnings",
 ];
 
-const sectionMeta: Record<CaseSectionKey, { id: string; label: string }> = {
-  challengeSolution: { id: "challenge-solution", label: "Challenge" },
-  industryContext: { id: "industry-context", label: "Context" },
-  shaping: { id: "shaping-product", label: "Strategy" },
-  engagementLoop: { id: "engagement-loop", label: "Loop" },
-  constraints: { id: "constraints", label: "Constraints" },
-  scaling: { id: "scaling-product", label: "Scaling" },
-  impact: { id: "impact", label: "Impact" },
-  learnings: { id: "learnings", label: "Learnings" },
+const sectionMeta: Record<CaseSectionKey, { id: string; labelKey: string }> = {
+  challengeSolution: { id: "challenge-solution", labelKey: "challenge" },
+  industryContext: { id: "industry-context", labelKey: "context" },
+  shaping: { id: "shaping-product", labelKey: "strategy" },
+  engagementLoop: { id: "engagement-loop", labelKey: "loop" },
+  constraints: { id: "constraints", labelKey: "constraints" },
+  scaling: { id: "scaling-product", labelKey: "scaling" },
+  impact: { id: "impact", labelKey: "impact" },
+  learnings: { id: "learnings", labelKey: "learnings" },
 };
 
 export function generateStaticParams() {
@@ -52,7 +67,9 @@ export async function generateMetadata({
   params,
 }: CaseStudyPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const study = getCaseStudy(slug);
+  const locale = await getLocale();
+  const baseStudy = getCaseStudy(slug);
+  const study = baseStudy ? localizeCaseStudy(baseStudy, locale) : undefined;
 
   if (!study) {
     return createPageMetadata({
@@ -73,35 +90,63 @@ export default async function CaseStudyPage({
   params,
 }: CaseStudyPageProps) {
   const { slug } = await params;
-  const study = getCaseStudy(slug);
+  const locale = await getLocale();
+  const t = await getTranslations("Case");
+  const messages = (await getMessages()) as unknown as Messages;
+  const baseStudy = getCaseStudy(slug);
+  const study = baseStudy ? localizeCaseStudy(baseStudy, locale) : undefined;
 
   if (!study) notFound();
   const sectionOrder = study.sectionOrder ?? defaultSectionOrder;
   const sectionDots = [
-    { id: "case-hero", label: "Hero" },
-    ...sectionOrder.map((section) => sectionMeta[section]),
+    { id: "case-hero", label: t("sections.hero") },
+    ...sectionOrder.map((section) => {
+      const meta = sectionMeta[section];
+      return { id: meta.id, label: t(`sections.${meta.labelKey}`) };
+    }),
   ];
+  const labels = {
+    challenge: t("labels.challenge"),
+    solution: t("labels.solution"),
+    constraint: t("labels.constraint"),
+    designResponse: t("labels.designResponse"),
+    moreProjects: t("labels.moreProjects"),
+  };
 
   return (
     <main className="case-page">
       <SiteHeader variant="case" />
       <div className="case-orientation-disclaimer">
         <img src="/images/ui/updating-case-icon.png" alt="" aria-hidden="true" />
-        <span>I recommend viewing case studies in landscape orientation.</span>
+        <span>{t("orientation")}</span>
       </div>
       <CaseStickyDots sections={sectionDots} />
       <CaseHero study={study} />
-      {sectionOrder.map((section) => renderCaseSection(section, study))}
-      <MoreProjects currentCaseUrl={`/case/${study.slug}`} />
+      {sectionOrder.map((section) => renderCaseSection(section, study, labels))}
+      <MoreProjects
+        currentCaseUrl={`/case/${study.slug}`}
+        labels={labels}
+        projects={messages.Home.projects}
+      />
       <ContactSection reduceMotion />
     </main>
   );
 }
 
-function renderCaseSection(section: CaseSectionKey, study: CaseStudy) {
+function renderCaseSection(
+  section: CaseSectionKey,
+  study: CaseStudy,
+  labels: {
+    challenge: string;
+    solution: string;
+    constraint: string;
+    designResponse: string;
+    moreProjects: string;
+  },
+) {
   switch (section) {
     case "challengeSolution":
-      return <ChallengeSolution key={section} study={study} />;
+      return <ChallengeSolution key={section} study={study} labels={labels} />;
     case "industryContext":
       return <IndustryContext key={section} study={study} />;
     case "shaping":
@@ -109,7 +154,7 @@ function renderCaseSection(section: CaseSectionKey, study: CaseStudy) {
     case "engagementLoop":
       return <EngagementLoop key={section} study={study} />;
     case "constraints":
-      return <ConstraintsSection key={section} study={study} />;
+      return <ConstraintsSection key={section} study={study} labels={labels} />;
     case "scaling":
       return <ScalingProduct key={section} study={study} />;
     case "impact":
