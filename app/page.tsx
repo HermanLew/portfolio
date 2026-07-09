@@ -408,7 +408,8 @@ function ExperienceSection({
       <a
         className="experience-download"
         href={t("cvHref")}
-        download={t("cvFileName")}
+        target="_blank"
+        rel="noreferrer"
       >
         {t("downloadCv")} <span aria-hidden="true">↓</span>
       </a>

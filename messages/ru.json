@@ -5,8 +5,8 @@
       "headlineMiddle": "сложные продукты",
       "headlineSecondStart": "в",
       "headlineEnd": "масштабируемые системы.",
-      "description": "Product Designer с фокусом на продуктовую стратегию, системное мышление и выравнивание команд. Помогаю превращать неопределенность в цельные цифровые продукты.",
-      "locationAria": "Локация и часовой пояс",
+      "description": "Продуктовый дизайнер с фокусом на продуктовую стратегию, системное мышление и синхронизацию команд. Помогаю превращать неопределенность в цельные цифровые продукты.",
+      "locationAria": "Местоположение и часовой пояс",
       "location": "Алматы, KZ",
       "timezone": "GMT +5",
       "diagramAria": "Диаграмма продуктового мышления",
@@ -23,9 +23,9 @@
     },
     "experience": {
       "heading": "10 лет опыта",
-      "headingAccent": "в создании продуктов, систем и команд на масштабе.",
+      "headingAccent": "в создании продуктов, систем и команд для масштаба.",
       "downloadCv": "Скачать CV",
-      "cvHref": "/files/cv/herman-lewandowsky-cv-en.pdf",
+      "cvHref": "https://drive.google.com/drive/folders/1DmHy2b32TJaqzDAr0QEcLpJ2fQhOA4im?usp=drive_link",
       "cvFileName": "Herman_Lewandowsky_CV.pdf"
     },
     "expertise": {
@@ -42,9 +42,9 @@
         "title": "BI Club",
         "displayTitle": "BI Club - приложение лояльности",
         "year": "2025",
-        "role": "Lead Product Designer",
+        "role": "Ведущий продуктовый дизайнер",
         "tags": ["DSGN", "UX/UI", "GAMIFI"],
-        "challenge": "Превратил постпокупочную лояльность в масштабируемую систему вовлечения вокруг наград, партнеров и сервисов для жителей.",
+        "challenge": "Превратил лояльность после покупки в масштабируемую систему вовлечения с наградами, партнерами и сервисами для жителей.",
         "cover": "/images/projects/home-covers/bi.png",
         "caseUrl": "/case/bi-club"
       },
@@ -52,9 +52,9 @@
         "title": "Green Supermarket",
         "displayTitle": "Платформа розничных операций",
         "year": "2025",
-        "role": "Lead Product Designer",
+        "role": "Ведущий продуктовый дизайнер",
         "tags": ["OPS", "TASKS", "LOGISTIC"],
-        "challenge": "Объединил store operations в единый рабочий процесс для задач, инвентаря и продуктовой логистики.",
+        "challenge": "Объединил операции в магазинах в единый рабочий процесс для задач, инвентаря и продуктовой логистики.",
         "cover": "/images/projects/home-covers/Lotus.png",
         "caseUrl": "/case/green-supermarket"
       },
@@ -62,7 +62,7 @@
         "title": "Uchi.ru",
         "displayTitle": "Uchi.ru",
         "year": "2020",
-        "role": "Senior Product Designer",
+        "role": "Старший продуктовый дизайнер",
         "tags": ["EDTECH", "ENGAGE", "GAMIFI"],
         "challenge": "Собрал систему удержания и вовлечения через игровые механики, поведенческие циклы и LiveOps.",
         "cover": "/images/projects/home-covers/uchi.png",
@@ -72,7 +72,7 @@
         "title": "Omega Finance",
         "displayTitle": "Omega Finance",
         "year": "2024",
-        "role": "Lead Product Designer",
+        "role": "Ведущий продуктовый дизайнер",
         "tags": ["FINTECH", "AI", "BANKING"],
         "challenge": "Сформировал современный мобильный банк, который конкурирует через ясность, доверие и качество продукта.",
         "cover": "/images/projects/home-covers/omega.png",
@@ -82,18 +82,18 @@
         "title": "Grabr",
         "displayTitle": "Grabr",
         "year": "2019",
-        "role": "Senior Product Designer",
+        "role": "Старший продуктовый дизайнер",
         "tags": ["MARKET", "ECOM", "GMV"],
-        "challenge": "Пересобрал marketplace journey в более понятный commerce flow, снижая трение на пути к GMV.",
+        "challenge": "Пересобрал путь пользователя на маркетплейсе в более понятный коммерческий сценарий, снижая трение на пути к GMV.",
         "cover": "/images/projects/home-covers/grabr.png",
         "caseUrl": "/case/grabr"
       }
     ],
     "experienceItems": [
-      { "company": "Prizma Tech", "role": "Product Design Lead", "years": "2024-2026" },
-      { "company": "XLA", "role": "Senior Product Designer", "years": "2022-2023" },
-      { "company": "Uchi.ru", "role": "Senior Product Designer", "years": "2019-2022" },
-      { "company": "Grabr", "role": "Senior Product Designer", "years": "2018-2019" },
+      { "company": "Prizma Tech", "role": "Руководитель продуктового дизайна", "years": "2024-2026" },
+      { "company": "XLA", "role": "Старший продуктовый дизайнер", "years": "2022-2023" },
+      { "company": "Uchi.ru", "role": "Старший продуктовый дизайнер", "years": "2019-2022" },
+      { "company": "Grabr", "role": "Старший продуктовый дизайнер", "years": "2018-2019" },
       { "company": "Sellpolab", "role": "Co-Founder / UX/UI", "years": "2016-2018" }
     ],
     "expertiseItems": [
@@ -104,8 +104,8 @@
       { "title": "Рост и удержание", "description": "Работа с устойчивым ростом продуктовых метрик." },
       { "title": "AI-продукты", "description": "Создание понятного опыта для AI-систем." },
       { "title": "Product Discovery", "description": "Снижение рисков через проверку гипотез." },
-      { "title": "Кросс-функциональное лидерство", "description": "Ведение команд на стыке дизайна, продукта и разработки." },
-      { "title": "Design Operations", "description": "Настройка эффективной и масштабируемой дизайн-практики." }
+      { "title": "Кросс-функциональное лидерство", "description": "Работа с командами на стыке дизайна, продукта и разработки." },
+      { "title": "Дизайн-операции", "description": "Настройка эффективной и масштабируемой дизайн-практики." }
     ]
   },
   "Navigation": {
@@ -127,10 +127,10 @@
     "headingLead": "Давайте",
     "headingRest": "свяжемся",
     "bodyLine1": "Напишите мне, если есть вопросы.",
-    "bodyLine2": "Я открыт к новым проектам и обычному разговору.",
+    "bodyLine2": "Открыт к новым проектам и простому разговору.",
     "linksAria": "Контактные ссылки",
     "telegram": "Telegram",
-    "email": "Написать на email",
+    "email": "Написать на почту",
     "linkedin": "LinkedIn",
     "credit": "Herman Lewandowsky, 2026"
   },
@@ -161,6 +161,6 @@
     "aria": "Игра Space Invaders",
     "desktopTitle": "Space Invaders",
     "mobileTitle": "Sasquash",
-    "instructions": "СТРЕЛКИ - движение, SPACE - огонь. Развлекайтесь!"
+    "instructions": "СТРЕЛКИ - движение, ПРОБЕЛ - огонь. Развлекайтесь!"
   }
 }
