@@ -111,7 +111,7 @@ export default function Home() {
 
       const rect = element.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
-      const start = viewportHeight * 0.7;
+      const start = viewportHeight * 0.85;
       const end = viewportHeight * 0.2;
       const progress = (start - rect.top) / Math.max(1, start - end);
       setDescriptionFill(Math.min(1, Math.max(0, progress)));
