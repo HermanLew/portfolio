@@ -12,11 +12,24 @@ export const conceptsPreviewImages: ConceptImage[] = [
 ];
 
 export const conceptsGalleryImages: ConceptImage[] = [
-  // Add image paths here, for example:
-  // { src: "/images/concepts/example.png", alt: "Mobile app concept", aspect: "wide" },
-  { alt: "Concept image 1", aspect: "wide" },
-  { alt: "Concept image 2", aspect: "wide" },
-  { alt: "Concept image 3", aspect: "wide" },
-  { alt: "Concept image 4", aspect: "wide" },
-  { alt: "Concept image 5", aspect: "tall" },
+  {
+    src: "/images/concepts/dating-app.png",
+    alt: "Dating app mobile concept",
+    aspect: "wide",
+  },
+  {
+    src: "/images/concepts/dating-flow.png",
+    alt: "Dating app scheduling flow",
+    aspect: "wide",
+  },
+  {
+    src: "/images/concepts/soundstream-structure.png",
+    alt: "Soundstream app structure concept",
+    aspect: "wide",
+  },
+  {
+    src: "/images/concepts/soundstream-brand.png",
+    alt: "Soundstream brand concept",
+    aspect: "square",
+  },
 ];
