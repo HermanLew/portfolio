@@ -7,7 +7,6 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useMessages, useTranslations } from "next-intl";
 import { ContactSection, SiteHeader } from "@/app/shared-ui";
-import { conceptsPreviewImages } from "@/lib/concepts";
 import type { ConceptImage } from "@/lib/concepts";
 
 const fadeUp = {
@@ -247,6 +246,24 @@ function HeroSection({
 
 function ConceptsSection({ reduceMotion }: { reduceMotion: boolean }) {
   const t = useTranslations("Home.concepts");
+  const [conceptImages, setConceptImages] = useState<ConceptImage[]>([]);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    fetch("/api/concepts")
+      .then((response) => (response.ok ? response.json() : { images: [] }))
+      .then((data: { images?: ConceptImage[] }) => {
+        if (isMounted) setConceptImages(data.images ?? []);
+      })
+      .catch(() => {
+        if (isMounted) setConceptImages([]);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <section className="concepts-home-section" aria-labelledby="concepts-home-title">
@@ -282,7 +299,7 @@ function ConceptsSection({ reduceMotion }: { reduceMotion: boolean }) {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           <Link className="concepts-visual-link" href="/concepts" aria-label={t("openAria")}>
-            {conceptsPreviewImages.map((image, index) => (
+            {conceptImages.map((image, index) => (
               <ConceptTile image={image} priority={false} key={`${image.alt}-${index}`} />
             ))}
           </Link>
