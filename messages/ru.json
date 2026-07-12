@@ -65,16 +65,6 @@
         "caseUrl": "/case/green-supermarket"
       },
       {
-        "title": "Uchi.ru",
-        "displayTitle": "Uchi.ru",
-        "year": "2020",
-        "role": "Старший продуктовый дизайнер",
-        "tags": ["EDTECH", "ENGAGE", "GAMIFI"],
-        "challenge": "Собрал систему удержания и вовлечения через игровые механики, поведенческие циклы и LiveOps.",
-        "cover": "/images/projects/home-covers/uchi.png",
-        "caseUrl": "/case/uchi-ru"
-      },
-      {
         "title": "Omega Finance",
         "displayTitle": "Omega Finance",
         "year": "2024",
@@ -83,6 +73,16 @@
         "challenge": "Сформировал современный мобильный банк, который конкурирует через ясность, доверие и качество продукта.",
         "cover": "/images/projects/home-covers/omega.png",
         "caseUrl": "/case/omega-finance"
+      },
+      {
+        "title": "Uchi.ru",
+        "displayTitle": "Uchi.ru",
+        "year": "2020",
+        "role": "Старший продуктовый дизайнер",
+        "tags": ["EDTECH", "ENGAGE", "GAMIFI"],
+        "challenge": "Собрал систему удержания и вовлечения через игровые механики, поведенческие циклы и LiveOps.",
+        "cover": "/images/projects/home-covers/uchi.png",
+        "caseUrl": "/case/uchi-ru"
       },
       {
         "title": "Grabr",

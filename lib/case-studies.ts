@@ -910,17 +910,20 @@ export const caseStudies: CaseStudy[] = [
         {
           title: "Predictive cash-flow",
           text: "Upcoming bills, income patterns and spending trends can be combined into simple forecasts.",
-          visualLabel: "Cash-flow forecast placeholder",
+          visualLabel: "Predictive cash-flow screen",
+          image: "/images/projects/omega-finance/9.png",
         },
         {
           title: "Smart budgets",
           text: "Budgets can adapt to user behavior while keeping every recommendation transparent and editable.",
-          visualLabel: "Smart budgets placeholder",
+          visualLabel: "Smart budget adjustment screen",
+          image: "/images/projects/omega-finance/10.png",
         },
         {
           title: "Contextual offers",
           text: "Relevant banking products can appear only when they solve a real user need, not as generic promotion.",
-          visualLabel: "Contextual offers placeholder",
+          visualLabel: "Cash-flow warning screen",
+          image: "/images/projects/omega-finance/11.png",
         },
       ],
     },
