@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getMessages, getTranslations } from "next-intl/server";
 import { ContactSection, SiteHeader } from "@/app/shared-ui";
 import { MoreProjects } from "@/app/case/[slug]/case-study-components";
-import { conceptsGalleryImages } from "@/lib/concepts";
+import { getConceptImages } from "@/lib/concepts.server";
 import { createPageMetadata } from "@/lib/metadata";
 import { ConceptsGallery } from "./concepts-gallery";
 
@@ -20,6 +20,8 @@ type Messages = {
   };
 };
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Concepts");
 
@@ -34,6 +36,7 @@ export default async function ConceptsPage() {
   const t = await getTranslations("Concepts");
   const caseT = await getTranslations("Case");
   const messages = (await getMessages()) as unknown as Messages;
+  const conceptImages = getConceptImages();
   const labels = {
     challenge: caseT("labels.challenge"),
     solution: caseT("labels.solution"),
@@ -50,7 +53,7 @@ export default async function ConceptsPage() {
         <p>{t("description")}</p>
       </section>
       <ConceptsGallery
-        images={conceptsGalleryImages}
+        images={conceptImages}
         labels={{
           close: t("close"),
           gallery: t("galleryAria"),
