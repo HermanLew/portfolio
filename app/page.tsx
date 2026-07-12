@@ -7,6 +7,8 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useMessages, useTranslations } from "next-intl";
 import { ContactSection, SiteHeader } from "@/app/shared-ui";
+import { conceptsPreviewImages } from "@/lib/concepts";
+import type { ConceptImage } from "@/lib/concepts";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
@@ -135,6 +137,7 @@ export default function Home() {
         systemPairs={home.systemPairs}
       />
       <WorkSection reduceMotion={Boolean(reduceMotion)} />
+      <ConceptsSection reduceMotion={Boolean(reduceMotion)} />
       <ExperienceSection
         experience={home.experienceItems}
         reduceMotion={Boolean(reduceMotion)}
@@ -239,6 +242,78 @@ function HeroSection({
         </motion.div>
       </div>
     </section>
+  );
+}
+
+function ConceptsSection({ reduceMotion }: { reduceMotion: boolean }) {
+  const t = useTranslations("Home.concepts");
+
+  return (
+    <section className="concepts-home-section" aria-labelledby="concepts-home-title">
+      <article
+        className="concepts-home-card concepts-clickable section-shell"
+        onMouseMove={(event: MouseEvent<HTMLElement>) => {
+          const rect = event.currentTarget.getBoundingClientRect();
+          event.currentTarget.style.setProperty("--cursor-x", `${event.clientX - rect.left}px`);
+          event.currentTarget.style.setProperty("--cursor-y", `${event.clientY - rect.top}px`);
+        }}
+      >
+        <span className="project-hover-label concepts-hover-label" aria-hidden="true">
+          {t("hoverLabel")}
+        </span>
+        <motion.div
+          className="concepts-home-copy"
+          initial={reduceMotion ? false : "hidden"}
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.45 }}
+          variants={fadeUp}
+          transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <Link className="concepts-copy-link" href="/concepts">
+            <h2 id="concepts-home-title">{t("heading")}</h2>
+            <p>{t("description")}</p>
+          </Link>
+        </motion.div>
+        <motion.div
+          className="concepts-home-visual"
+          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <Link className="concepts-visual-link" href="/concepts" aria-label={t("openAria")}>
+            {conceptsPreviewImages.map((image, index) => (
+              <ConceptTile image={image} priority={false} key={`${image.alt}-${index}`} />
+            ))}
+          </Link>
+        </motion.div>
+      </article>
+    </section>
+  );
+}
+
+function ConceptTile({
+  image,
+  priority,
+}: {
+  image: ConceptImage;
+  priority: boolean;
+}) {
+  if (!image.src) {
+    return <div className={`concept-tile concept-tile-${image.aspect}`} aria-label={image.alt} />;
+  }
+
+  return (
+    <div className={`concept-tile concept-tile-${image.aspect}`}>
+      <Image
+        src={image.src}
+        alt={image.alt}
+        width={1200}
+        height={900}
+        sizes="(max-width: 768px) 44vw, 24vw"
+        priority={priority}
+      />
+    </div>
   );
 }
 

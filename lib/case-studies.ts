@@ -355,6 +355,7 @@ export const caseStudies: CaseStudy[] = [
       "scaling",
       "engagementLoop",
       "constraints",
+      "scaling",
       "impact",
       "learnings",
     ],
@@ -771,7 +772,7 @@ export const caseStudies: CaseStudy[] = [
     tags: ["BANKING", "AI", "MOBILE"],
     summary:
       "A modern banking experience for a smaller financial institution, using AI-assisted personalization to help users understand spending, optimize budgets and act on relevant financial insights.",
-    cover: "/images/projects/covers/omega.png",
+    cover: "/images/projects/omega-finance/1.png",
     info: [
       { label: "client", value: "Omega Finance" },
       { label: "year", value: "2024" },
@@ -794,6 +795,7 @@ export const caseStudies: CaseStudy[] = [
         "Smaller banks often struggle to compete with modern fintech products. Users expect fast transactions, simple money management and proactive help, while traditional banking apps still feel static and account-centered.",
       solution:
         "We reframed the app around personalized financial guidance. Instead of showing balances and transactions only, the experience surfaces spending patterns, budget risks, relevant actions and AI-generated explanations that help users make better decisions.",
+      image: "/images/projects/omega-finance/2.png",
     },
     industryContext: {
       label: "INDUSTRY CONTEXT",
@@ -809,7 +811,8 @@ export const caseStudies: CaseStudy[] = [
       ],
       text:
         "For many users, a banking app is no longer just a place to transfer money. It is expected to explain what happened, predict what might happen next and help users act before small financial issues become stressful.",
-      visualLabel: "AI banking journey placeholder",
+      visualLabel: "AI banking journey map",
+      image: "/images/projects/omega-finance/3.png",
     },
     shaping: {
       label: "PRODUCT STRATEGY",
@@ -836,6 +839,7 @@ export const caseStudies: CaseStudy[] = [
         title: "Personalization that earns trust.",
         description:
           "The interface was designed to make AI feel useful and transparent: users see why an insight appeared, what data it refers to and what they can do next.",
+        image: "/images/projects/omega-finance/4.png",
       },
     },
     engagementLoop: {
@@ -857,19 +861,22 @@ export const caseStudies: CaseStudy[] = [
           title: "Personalized financial home",
           text:
             "The home screen combines balance, upcoming payments and the most relevant insight instead of forcing users to inspect multiple sections.",
-          visualLabel: "Personalized home placeholder",
+          visualLabel: "Personalized banking home screen",
+          image: "/images/projects/omega-finance/5.png",
         },
         {
           title: "AI spend insights",
           text:
             "Insights explain unusual spending, category changes and potential budget pressure in plain language.",
-          visualLabel: "AI insights placeholder",
+          visualLabel: "AI spending insight screen",
+          image: "/images/projects/omega-finance/6.png",
         },
         {
           title: "Budget optimization",
           text:
             "Users can convert insights into actions: adjust limits, move money, schedule reminders or create saving rules.",
-          visualLabel: "Budget optimization placeholder",
+          visualLabel: "Budget optimization screen",
+          image: "/images/projects/omega-finance/7.png",
         },
       ],
     },
@@ -891,6 +898,7 @@ export const caseStudies: CaseStudy[] = [
         { constraint: "Sensitive data", response: "Permission-led personalization and privacy-first language" },
         { constraint: "Daily usage", response: "Short, actionable insights instead of long reports" },
       ],
+      image: "/images/projects/omega-finance/8.png",
     },
     scaling: {
       label: "SCALING THE PRODUCT",

@@ -21,6 +21,12 @@
       "visualComingSoon": "Превью проекта скоро появится",
       "updatingLabel": "Кейс обновляется"
     },
+    "concepts": {
+      "heading": "Concepts",
+      "description": "Здесь собраны экспериментальные продуктовые и интерфейсные идеи, более концептуальные с точки зрения дизайна.",
+      "hoverLabel": "View Gallery ->",
+      "openAria": "Открыть галерею Concepts"
+    },
     "experience": {
       "heading": "10 лет опыта",
       "headingAccent": "в создании продуктов, систем и команд для масштаба.",
@@ -76,7 +82,7 @@
         "tags": ["FINTECH", "AI", "BANKING"],
         "challenge": "Сформировал современный мобильный банк, который конкурирует через ясность, доверие и качество продукта.",
         "cover": "/images/projects/home-covers/omega.png",
-        "isUpdating": true
+        "caseUrl": "/case/omega-finance"
       },
       {
         "title": "Grabr",
@@ -154,6 +160,17 @@
       "designResponse": "Дизайн-ответ",
       "moreProjects": "Другие проекты"
     }
+  },
+  "Concepts": {
+    "metadataTitle": "Concepts - Herman Lewandowsky",
+    "metadataDescription": "Галерея экспериментальных продуктовых и интерфейсных концептов Германа Левандовского.",
+    "heading": "Concepts",
+    "description": "Здесь собраны экспериментальные продуктовые и интерфейсные идеи, более концептуальные с точки зрения дизайна.",
+    "galleryAria": "Галерея Concepts",
+    "openImage": "Открыть изображение концепта",
+    "close": "Закрыть галерею",
+    "next": "Следующее изображение",
+    "previous": "Предыдущее изображение"
   },
   "Game": {
     "metadataTitle": "Геймификация - Herman Lewandowsky",

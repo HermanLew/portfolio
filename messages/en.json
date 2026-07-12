@@ -21,6 +21,12 @@
       "visualComingSoon": "Project visual coming soon",
       "updatingLabel": "Case in the process of updating"
     },
+    "concepts": {
+      "heading": "Concepts",
+      "description": "Collected here as a demonstration of exploratory product and interface ideas that are more conceptual from a design point of view.",
+      "hoverLabel": "View Gallery ->",
+      "openAria": "Open Concepts gallery"
+    },
     "experience": {
       "heading": "10 years of experience",
       "headingAccent": "building products, systems, and teams at scale.",
@@ -76,7 +82,7 @@
         "tags": ["FINTECH", "AI", "BANKING"],
         "challenge": "Shaped a modern banking app experience for a smaller bank competing on clarity, trust, and product quality.",
         "cover": "/images/projects/home-covers/omega.png",
-        "isUpdating": true
+        "caseUrl": "/case/omega-finance"
       },
       {
         "title": "Grabr",
@@ -154,6 +160,17 @@
       "designResponse": "Design Response",
       "moreProjects": "More Projects"
     }
+  },
+  "Concepts": {
+    "metadataTitle": "Concepts - Herman Lewandowsky",
+    "metadataDescription": "A gallery of exploratory product and interface concepts by Herman Lewandowsky.",
+    "heading": "Concepts",
+    "description": "Collected here as a demonstration of exploratory product and interface ideas that are more conceptual from a design point of view.",
+    "galleryAria": "Concepts gallery",
+    "openImage": "Open concept image",
+    "close": "Close gallery",
+    "next": "Next image",
+    "previous": "Previous image"
   },
   "Game": {
     "metadataTitle": "Gamification - Herman Lewandowsky",
