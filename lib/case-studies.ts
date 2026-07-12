@@ -762,7 +762,6 @@ export const caseStudies: CaseStudy[] = [
       "engagementLoop",
       "constraints",
       "scaling",
-      "impact",
       "learnings",
     ],
     title: "Omega Finance - AI Banking App",
