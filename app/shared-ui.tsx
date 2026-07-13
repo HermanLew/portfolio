@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import type { CSSProperties } from "react";
+import { useEffect, useState } from "react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
@@ -13,10 +14,33 @@ const fadeUp = {
 export function SiteHeader({ variant = "default" }: { variant?: "default" | "case" }) {
   const isCase = variant === "case";
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const t = useTranslations("Navigation");
 
+  useEffect(() => {
+    if (isCase) return;
+
+    const updateScrollProgress = () => {
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const nextProgress = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+      setScrollProgress(Math.min(1, Math.max(0, nextProgress)));
+    };
+
+    updateScrollProgress();
+    window.addEventListener("scroll", updateScrollProgress, { passive: true });
+    window.addEventListener("resize", updateScrollProgress);
+
+    return () => {
+      window.removeEventListener("scroll", updateScrollProgress);
+      window.removeEventListener("resize", updateScrollProgress);
+    };
+  }, [isCase]);
+
   return (
-    <header className={`site-header${isCase ? " site-header-case" : ""}`}>
+    <header
+      className={`site-header${isCase ? " site-header-case" : ""}`}
+      style={{ "--scroll-progress": scrollProgress } as CSSProperties}
+    >
       <a
         className="brand-link"
         href={isCase ? "/#work" : "/"}
