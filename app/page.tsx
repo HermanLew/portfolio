@@ -6,6 +6,7 @@ import type { CSSProperties, MouseEvent, RefObject } from "react";
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useMessages, useTranslations } from "next-intl";
+import { NeuroNoise } from "@paper-design/shaders-react";
 import { ContactSection, SiteHeader } from "@/app/shared-ui";
 import type { ConceptImage } from "@/lib/concepts";
 
@@ -178,6 +179,18 @@ function HeroSection({
         variants={fadeUp}
         transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
       >
+        <div className="hero-noise-background" aria-hidden="true">
+          <NeuroNoise
+            width={1280}
+            height={720}
+            colorFront="#4f4f4f"
+            colorMid="#303030"
+            colorBack="#000000"
+            brightness={0.05}
+            contrast={0.3}
+            speed={reduceMotion ? 0 : 1}
+          />
+        </div>
         <h1>
           <span>{t("headlineStart")}</span> {t("headlineMiddle")}
           <br />
