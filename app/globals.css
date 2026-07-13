@@ -178,6 +178,7 @@ button {
 }
 
 .hero-section {
+  position: relative;
   background: var(--bg);
   overflow: hidden;
   overflow: clip;
@@ -188,8 +189,6 @@ button {
   display: flex;
   min-height: 100svh;
   align-items: flex-end;
-  overflow: hidden;
-  overflow: clip;
   padding-top: 120px;
   padding-bottom: clamp(64px, 7vw, 108px);
 }
@@ -205,10 +204,21 @@ button {
   letter-spacing: 0;
 }
 
+.headline-mobile-join,
+.headline-break-mobile,
+.headline-mobile-end {
+  display: none;
+}
+
 .hero-statement h1 span,
 .experience-intro h2 span,
 .contact-section h2 span {
   color: var(--dim);
+}
+
+.hero-statement h1 .headline-desktop-second,
+.hero-statement h1 .headline-mobile-end {
+  color: inherit;
 }
 
 .hero-detail {
@@ -225,10 +235,14 @@ button {
 .hero-noise-background {
   position: absolute;
   z-index: 0;
-  inset: 0 calc(50% - 50vw);
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  height: 100svh;
   overflow: hidden;
   background: #000000;
   pointer-events: none;
+  transform: translateX(-50%);
 }
 
 .hero-noise-background::before,
@@ -2365,6 +2379,21 @@ button {
     font-size: clamp(56px, 16vw, 76px);
   }
 
+  .hero-statement h1.is-russian {
+    font-size: clamp(48px, 14.2vw, 68px);
+  }
+
+  .headline-break-desktop,
+  .headline-desktop-second {
+    display: none;
+  }
+
+  .headline-mobile-join,
+  .headline-break-mobile,
+  .headline-mobile-end {
+    display: inline;
+  }
+
   .hero-detail {
     min-height: auto;
     padding-top: 120px;
@@ -2381,13 +2410,9 @@ button {
   }
 
   .system-pair {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto 1fr auto;
     gap: 16px;
     font-size: 14px;
-  }
-
-  .system-line {
-    display: none;
   }
 
   .project-slide {
