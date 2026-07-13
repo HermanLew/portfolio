@@ -595,8 +595,7 @@ button {
   aspect-ratio: 1.26 / 1;
 }
 
-.concept-tile img,
-.concept-gallery-tile img {
+.concept-tile img {
   width: 100%;
   height: 100%;
   display: block;
@@ -606,8 +605,7 @@ button {
 }
 
 .concepts-home-card:hover .concept-tile img,
-.concepts-home-card:focus-within .concept-tile img,
-.concept-gallery-tile:hover img {
+.concepts-home-card:focus-within .concept-tile img {
   filter: grayscale(0) saturate(0.82) contrast(0.98) brightness(0.9);
 }
 
@@ -1945,6 +1943,13 @@ button {
   width: 100%;
   margin: 0;
   color: inherit;
+}
+
+.concept-gallery-tile img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .concept-gallery-tile-wide {
