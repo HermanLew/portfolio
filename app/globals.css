@@ -2061,7 +2061,10 @@ button {
   display: grid;
   width: min(100vw - 96px, 1480px);
   height: min(100svh - 96px, 920px);
-  place-items: center;
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-items: center;
+  justify-items: center;
+  overflow: hidden;
 }
 
 .concept-lightbox-image {
@@ -2069,11 +2072,44 @@ button {
   max-width: 100%;
   height: auto;
   max-height: 100%;
+  cursor: zoom-in;
   object-fit: contain;
+  transition: transform 180ms var(--ease);
+}
+
+.concept-lightbox-content.is-zoomed {
+  overflow: auto;
+  place-items: start center;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(244, 244, 241, 0.38) transparent;
+}
+
+.concept-lightbox-content.is-zoomed .concept-lightbox-image {
+  width: 125%;
+  max-width: none;
+  max-height: none;
+  cursor: zoom-out;
+}
+
+.concept-lightbox-content.is-zoomed .concept-lightbox-caption {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+}
+
+.concept-lightbox-caption {
+  max-width: min(100%, 760px);
+  margin: 22px 0 0;
+  color: rgba(244, 244, 241, 0.86);
+  font-size: clamp(16px, 1.1vw, 20px);
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: center;
 }
 
 .concept-lightbox-close,
-.concept-lightbox-nav {
+.concept-lightbox-nav,
+.concept-lightbox-zoom {
   position: absolute;
   z-index: 2;
   display: grid;
@@ -2093,7 +2129,8 @@ button {
 }
 
 .concept-lightbox-close:hover,
-.concept-lightbox-nav:hover {
+.concept-lightbox-nav:hover,
+.concept-lightbox-zoom:hover {
   background: rgba(244, 244, 241, 0.14);
   color: #ffffff;
 }
@@ -2101,6 +2138,13 @@ button {
 .concept-lightbox-close {
   top: 0;
   right: 0;
+}
+
+.concept-lightbox-zoom {
+  top: 0;
+  right: 62px;
+  font-size: 16px;
+  font-weight: 620;
 }
 
 .concept-lightbox-nav {
@@ -2570,10 +2614,16 @@ button {
   }
 
   .concept-lightbox-close,
-  .concept-lightbox-nav {
+  .concept-lightbox-nav,
+  .concept-lightbox-zoom {
     width: 44px;
     height: 44px;
     font-size: 24px;
+  }
+
+  .concept-lightbox-zoom {
+    right: 52px;
+    font-size: 14px;
   }
 
   .case-hero h1,

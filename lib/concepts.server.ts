@@ -53,10 +53,10 @@ export function getConceptImages(): ConceptImageFile[] {
         modifiedAt: stats.mtimeMs,
       };
     })
-    .sort((a, b) => a.modifiedAt - b.modifiedAt)
+    .sort((a, b) => b.modifiedAt - a.modifiedAt)
     .map(({ modifiedAt, ...image }) => image);
 }
 
 export function getConceptPreviewImages(count = 4): ConceptImageFile[] {
-  return getConceptImages().slice(-count);
+  return getConceptImages().slice(0, count);
 }

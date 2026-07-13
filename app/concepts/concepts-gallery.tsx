@@ -24,6 +24,7 @@ export function ConceptsGallery({
     [images],
   );
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [isZoomed, setIsZoomed] = useState(false);
   const activeImage = activeIndex === null ? null : galleryImages[activeIndex];
   const hasMultipleImages = galleryImages.length > 1;
 
@@ -61,6 +62,10 @@ export function ConceptsGallery({
     };
   }, [activeIndex, galleryImages.length]);
 
+  useEffect(() => {
+    setIsZoomed(false);
+  }, [activeIndex]);
+
   if (galleryImages.length === 0) return null;
 
   return (
@@ -91,16 +96,30 @@ export function ConceptsGallery({
             className="concept-lightbox-backdrop"
             type="button"
             aria-label={labels.close}
-            onClick={() => setActiveIndex(null)}
+            onClick={() => {
+              setIsZoomed(false);
+              setActiveIndex(null);
+            }}
           />
-          <div className="concept-lightbox-content">
+          <div className={`concept-lightbox-content${isZoomed ? " is-zoomed" : ""}`}>
             <button
               className="concept-lightbox-close"
               type="button"
               aria-label={labels.close}
-              onClick={() => setActiveIndex(null)}
+              onClick={() => {
+                setIsZoomed(false);
+                setActiveIndex(null);
+              }}
             >
               ×
+            </button>
+            <button
+              className="concept-lightbox-zoom"
+              type="button"
+              aria-pressed={isZoomed}
+              onClick={() => setIsZoomed((zoomed) => !zoomed)}
+            >
+              {isZoomed ? "1x" : "1.25x"}
             </button>
             {hasMultipleImages ? (
               <button
@@ -120,7 +139,9 @@ export function ConceptsGallery({
               height={1440}
               sizes="100vw"
               priority
+              onClick={() => setIsZoomed((zoomed) => !zoomed)}
             />
+            <p className="concept-lightbox-caption">{activeImage.alt}</p>
             {hasMultipleImages ? (
               <button
                 className="concept-lightbox-nav concept-lightbox-next"
