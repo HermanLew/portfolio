@@ -168,9 +168,22 @@ function HeroSection({
 }) {
   const t = useTranslations("Home.hero");
   const heroDescription = t("description");
+  const isRussianHero = t("headlineStart") === "Превращаю";
 
   return (
     <section className="hero-section" id="top">
+      <div className="hero-noise-background" aria-hidden="true">
+        <NeuroNoise
+          width={1280}
+          height={720}
+          colorFront="#4f4f4f"
+          colorMid="#303030"
+          colorBack="#000000"
+          brightness={0.05}
+          contrast={0.3}
+          speed={reduceMotion ? 0 : 1}
+        />
+      </div>
       <motion.div
         className="hero-statement section-shell"
         initial={reduceMotion ? false : "hidden"}
@@ -179,22 +192,18 @@ function HeroSection({
         variants={fadeUp}
         transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div className="hero-noise-background" aria-hidden="true">
-          <NeuroNoise
-            width={1280}
-            height={720}
-            colorFront="#4f4f4f"
-            colorMid="#303030"
-            colorBack="#000000"
-            brightness={0.05}
-            contrast={0.3}
-            speed={reduceMotion ? 0 : 1}
-          />
-        </div>
-        <h1>
+        <h1 className={isRussianHero ? "is-russian" : undefined}>
           <span>{t("headlineStart")}</span> {t("headlineMiddle")}
-          <br />
-          <span>{t("headlineSecondStart")}</span> {t("headlineEnd")}
+          <span className="headline-mobile-join">
+            {"\u00a0"}
+            {t("headlineSecondStart")}
+          </span>
+          <br className="headline-break-mobile" />
+          <br className="headline-break-desktop" />
+          <span className="headline-desktop-second">
+            <span>{t("headlineSecondStart")}</span> {t("headlineEnd")}
+          </span>
+          <span className="headline-mobile-end">{t("headlineEnd")}</span>
         </h1>
       </motion.div>
       <div className="hero-detail section-shell">
