@@ -90,9 +90,21 @@ button {
 }
 
 .nav-rule {
+  position: relative;
   height: 1px;
   flex: 1 1 auto;
+  overflow: hidden;
   background: var(--line-strong);
+}
+
+.nav-rule::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: rgba(255, 255, 255, 0.92);
+  transform: scaleX(var(--scroll-progress, 0));
+  transform-origin: left center;
+  transition: transform 80ms linear;
 }
 
 .brand-link,
