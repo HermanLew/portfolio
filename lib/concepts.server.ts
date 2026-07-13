@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync, statSync } from "fs";
+import { readdirSync, readFileSync } from "fs";
 import { extname, join } from "path";
 import {
   conceptsImageExtensions,
@@ -9,6 +9,13 @@ import {
 import type { ConceptImageFile } from "./concepts";
 
 const conceptsImageDirectory = join(process.cwd(), "public", "images", "concepts");
+const conceptImageOrder = [
+  "vpn-agent.png",
+  "streaming_app_brand.png",
+  "dating_app_main.png",
+  "dating_app-flow.png",
+  "streaming_app_structure.png",
+];
 
 type ImageSize = {
   width: number;
@@ -43,18 +50,22 @@ export function getConceptImages(): ConceptImageFile[] {
     .filter((fileName) => conceptsImageExtensions.has(extname(fileName).toLowerCase()))
     .map((fileName) => {
       const filePath = join(conceptsImageDirectory, fileName);
-      const stats = statSync(filePath);
       const size = getImageSize(filePath);
 
       return {
         src: `${conceptsImageRoute}/${fileName}`,
         alt: getConceptAlt(fileName),
         aspect: getConceptAspect(size.width, size.height),
-        modifiedAt: stats.mtimeMs,
+        order: conceptImageOrder.indexOf(fileName),
       };
     })
-    .sort((a, b) => b.modifiedAt - a.modifiedAt)
-    .map(({ modifiedAt, ...image }) => image);
+    .sort((a, b) => {
+      const aOrder = a.order === -1 ? Number.MAX_SAFE_INTEGER : a.order;
+      const bOrder = b.order === -1 ? Number.MAX_SAFE_INTEGER : b.order;
+
+      return aOrder - bOrder || a.src.localeCompare(b.src);
+    })
+    .map(({ order, ...image }) => image);
 }
 
 export function getConceptPreviewImages(count = 4): ConceptImageFile[] {
