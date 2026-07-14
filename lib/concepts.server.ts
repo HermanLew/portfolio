@@ -10,7 +10,8 @@ import type { ConceptImageFile } from "./concepts";
 
 const conceptsImageDirectory = join(process.cwd(), "public", "images", "concepts");
 const conceptImageOrder = [
-  "vpn-agent.png",
+  "vpn-client.png",
+  "vpn-client-fast-switch.png",
   "streaming_app_brand.png",
   "dating_app_main.png",
   "dating_app-flow.png",
