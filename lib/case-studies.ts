@@ -58,6 +58,7 @@ export type CaseStudy = {
     challenge: string;
     solution: string;
     image?: string;
+    video?: string;
   };
   industryContext: {
     label: string;
@@ -796,7 +797,7 @@ export const caseStudies: CaseStudy[] = [
         "Smaller banks often struggle to compete with modern fintech products. Users expect fast transactions, simple money management and proactive help, while traditional banking apps still feel static and account-centered.",
       solution:
         "We reframed the app around personalized financial guidance. Instead of showing balances and transactions only, the experience surfaces spending patterns, budget risks, relevant actions and AI-generated explanations that help users make better decisions.",
-      image: "/images/projects/omega-finance/2.png",
+      video: "/images/projects/omega-finance/omega-demo.mp4",
     },
     industryContext: {
       label: "INDUSTRY CONTEXT",

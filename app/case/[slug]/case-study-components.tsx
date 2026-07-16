@@ -90,6 +90,7 @@ export function ChallengeSolution({
       </div>
       <CaseVisual
         image={study.challengeSolution.image}
+        video={study.challengeSolution.video}
         label="Process image placeholder"
         className="case-wide-image"
         priority={false}
