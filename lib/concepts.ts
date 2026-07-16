@@ -2,6 +2,7 @@ export type ConceptImage = {
   src?: string;
   alt: string;
   aspect: "wide" | "square" | "tall";
+  mediaType?: "image" | "video";
 };
 
 export type ConceptImageFile = ConceptImage & {
@@ -11,6 +12,7 @@ export type ConceptImageFile = ConceptImage & {
 export const conceptsImageRoute = "/images/concepts";
 
 export const conceptsImageExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
+export const conceptsVideoExtensions = new Set([".mp4"]);
 
 export function getConceptAspect(width: number, height: number): ConceptImage["aspect"] {
   const ratio = width / Math.max(1, height);

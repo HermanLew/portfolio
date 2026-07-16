@@ -3,13 +3,15 @@ import { extname, join } from "path";
 import {
   conceptsImageExtensions,
   conceptsImageRoute,
+  conceptsVideoExtensions,
   getConceptAlt,
   getConceptAspect,
 } from "./concepts";
-import type { ConceptImageFile } from "./concepts";
+import type { ConceptImage, ConceptImageFile } from "./concepts";
 
 const conceptsImageDirectory = join(process.cwd(), "public", "images", "concepts");
 const conceptImageOrder = [
+  "bi-club-prototype.mp4",
   "vpn-client.png",
   "vpn-client-fast-switch.png",
   "streaming_app_brand.png",
@@ -48,15 +50,22 @@ export function getConceptImages(): ConceptImageFile[] {
   }
 
   return files
-    .filter((fileName) => conceptsImageExtensions.has(extname(fileName).toLowerCase()))
+    .filter((fileName) => {
+      const extension = extname(fileName).toLowerCase();
+      return conceptsImageExtensions.has(extension) || conceptsVideoExtensions.has(extension);
+    })
     .map((fileName) => {
       const filePath = join(conceptsImageDirectory, fileName);
-      const size = getImageSize(filePath);
+      const extension = extname(fileName).toLowerCase();
+      const isVideo = conceptsVideoExtensions.has(extension);
+      const size = isVideo ? { width: 16, height: 9 } : getImageSize(filePath);
+      const mediaType: ConceptImage["mediaType"] = isVideo ? "video" : "image";
 
       return {
         src: `${conceptsImageRoute}/${fileName}`,
         alt: getConceptAlt(fileName),
         aspect: getConceptAspect(size.width, size.height),
+        mediaType,
         order: conceptImageOrder.indexOf(fileName),
       };
     })

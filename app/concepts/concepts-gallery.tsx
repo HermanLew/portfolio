@@ -23,10 +23,18 @@ export function ConceptsGallery({
     () => images.filter((image): image is ConceptImage & { src: string } => Boolean(image.src)),
     [images],
   );
+  const galleryColumns = useMemo(
+    () => [
+      galleryImages.map((image, index) => ({ image, index })).filter((_, index) => index % 2 === 0),
+      galleryImages.map((image, index) => ({ image, index })).filter((_, index) => index % 2 === 1),
+    ],
+    [galleryImages],
+  );
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [isZoomed, setIsZoomed] = useState(false);
   const activeImage = activeIndex === null ? null : galleryImages[activeIndex];
   const hasMultipleImages = galleryImages.length > 1;
+  const activeIsVideo = activeImage?.mediaType === "video";
 
   const goToPrevious = () => {
     if (!hasMultipleImages) return;
@@ -68,27 +76,50 @@ export function ConceptsGallery({
 
   if (galleryImages.length === 0) return null;
 
+  const renderTile = (image: ConceptImage & { src: string }, index: number) => (
+    <button
+      className={`concept-gallery-tile concept-gallery-tile-${image.aspect}`}
+      type="button"
+      aria-label={`${labels.openImage} ${index + 1}`}
+      onClick={() => setActiveIndex(index)}
+      key={`${image.src}-${index}`}
+    >
+      {image.mediaType === "video" ? (
+        <video
+          src={image.src}
+          aria-label={image.alt}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+        />
+      ) : (
+        <Image
+          src={image.src}
+          alt={image.alt}
+          width={1440}
+          height={1080}
+          sizes="(max-width: 720px) 100vw, 46vw"
+          priority={index < 2}
+        />
+      )}
+    </button>
+  );
+
   return (
     <>
       <section className="concepts-gallery section-shell" aria-label={labels.gallery}>
-        {galleryImages.map((image, index) => (
-          <button
-            className={`concept-gallery-tile concept-gallery-tile-${image.aspect}`}
-            type="button"
-            aria-label={`${labels.openImage} ${index + 1}`}
-            onClick={() => setActiveIndex(index)}
-            key={`${image.src}-${index}`}
-          >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              width={1440}
-              height={1080}
-              sizes="(max-width: 720px) 100vw, 46vw"
-              priority={index < 2}
-            />
-          </button>
-        ))}
+        <div className="concepts-gallery-desktop">
+          {galleryColumns.map((column, columnIndex) => (
+            <div className="concepts-gallery-column" key={`concept-column-${columnIndex}`}>
+              {column.map(({ image, index }) => renderTile(image, index))}
+            </div>
+          ))}
+        </div>
+        <div className="concepts-gallery-mobile">
+          {galleryImages.map((image, index) => renderTile(image, index))}
+        </div>
       </section>
       {activeImage ? (
         <div className="concept-lightbox" role="dialog" aria-modal="true">
@@ -101,7 +132,7 @@ export function ConceptsGallery({
               setActiveIndex(null);
             }}
           />
-          <div className={`concept-lightbox-content${isZoomed ? " is-zoomed" : ""}`}>
+          <div className={`concept-lightbox-content${isZoomed && !activeIsVideo ? " is-zoomed" : ""}`}>
             <button
               className="concept-lightbox-close"
               type="button"
@@ -113,14 +144,16 @@ export function ConceptsGallery({
             >
               ×
             </button>
-            <button
-              className="concept-lightbox-zoom"
-              type="button"
-              aria-pressed={isZoomed}
-              onClick={() => setIsZoomed((zoomed) => !zoomed)}
-            >
-              {isZoomed ? "1x" : "1.25x"}
-            </button>
+            {activeIsVideo ? null : (
+              <button
+                className="concept-lightbox-zoom"
+                type="button"
+                aria-pressed={isZoomed}
+                onClick={() => setIsZoomed((zoomed) => !zoomed)}
+              >
+                {isZoomed ? "1x" : "1.25x"}
+              </button>
+            )}
             {hasMultipleImages ? (
               <button
                 className="concept-lightbox-nav concept-lightbox-prev"
@@ -131,16 +164,30 @@ export function ConceptsGallery({
                 ←
               </button>
             ) : null}
-            <Image
-              className="concept-lightbox-image"
-              src={activeImage.src}
-              alt={activeImage.alt}
-              width={1920}
-              height={1440}
-              sizes="100vw"
-              priority
-              onClick={() => setIsZoomed((zoomed) => !zoomed)}
-            />
+            {activeIsVideo ? (
+              <video
+                className="concept-lightbox-image"
+                src={activeImage.src}
+                aria-label={activeImage.alt}
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls
+                preload="metadata"
+              />
+            ) : (
+              <Image
+                className="concept-lightbox-image"
+                src={activeImage.src}
+                alt={activeImage.alt}
+                width={1920}
+                height={1440}
+                sizes="100vw"
+                priority
+                onClick={() => setIsZoomed((zoomed) => !zoomed)}
+              />
+            )}
             <p className="concept-lightbox-caption">{activeImage.alt}</p>
             {hasMultipleImages ? (
               <button

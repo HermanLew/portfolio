@@ -344,14 +344,18 @@ function ConceptTile({
 
   return (
     <div className={`concept-tile concept-tile-${image.aspect}`}>
-      <Image
-        src={image.src}
-        alt={image.alt}
-        width={1200}
-        height={900}
-        sizes="(max-width: 768px) 44vw, 24vw"
-        priority={priority}
-      />
+      {image.mediaType === "video" ? (
+        <video src={image.src} aria-label={image.alt} autoPlay loop muted playsInline preload="metadata" />
+      ) : (
+        <Image
+          src={image.src}
+          alt={image.alt}
+          width={1200}
+          height={900}
+          sizes="(max-width: 768px) 44vw, 24vw"
+          priority={priority}
+        />
+      )}
     </div>
   );
 }
