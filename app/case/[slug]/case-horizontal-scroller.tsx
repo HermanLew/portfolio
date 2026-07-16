@@ -76,7 +76,19 @@ export function CaseHorizontalScroller({ slides }: { slides: CaseSlide[] }) {
               <span>{String(index + 1).padStart(2, "0")}</span>
               <h3>{slide.title}</h3>
               <p>{slide.text}</p>
-              {slide.image ? (
+              {slide.video ? (
+                <div className="case-horizontal-visual">
+                  <video
+                    src={slide.video}
+                    aria-label={slide.visualLabel}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                  />
+                </div>
+              ) : slide.image ? (
                 <div className="case-horizontal-visual">
                   <Image
                     src={slide.image}

@@ -149,6 +149,7 @@ export function ShapingProduct({ study }: { study: CaseStudy }) {
       <div className="case-feature-row">
         <CaseVisual
           image={study.shaping.feature.image}
+          video={study.shaping.feature.video}
           label="Product direction mockup"
           className="case-phone-image"
           priority={false}
@@ -333,7 +334,18 @@ function VerticalSnapSlides({ slides }: { slides: CaseSlide[] }) {
       {slides.map((slide, index) => (
         <article className="case-vertical-slide section-shell" key={slide.title}>
           <div className="case-slide-visual">
-            {slide.image ? (
+            {slide.video ? (
+              <video
+                className="case-slide-image"
+                src={slide.video}
+                aria-label={slide.visualLabel}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+              />
+            ) : slide.image ? (
               <Image
                 src={slide.image}
                 alt={slide.visualLabel}
@@ -390,20 +402,36 @@ function MetricCard({ metric }: { metric: CaseMetric }) {
 
 function CaseVisual({
   image,
+  video,
   label,
   className,
   priority,
 }: {
   image?: string;
+  video?: string;
   label: string;
   className?: string;
   priority: boolean;
 }) {
-  if (!image) return <VisualPlaceholder label={label} size="wide" />;
+  if (!image && !video) return <VisualPlaceholder label={label} size="wide" />;
 
   return (
     <div className={`case-image-frame ${className ?? ""}`}>
-      <Image src={image} alt={label} width={2048} height={868} priority={priority} />
+      {video ? (
+        <video
+          src={video}
+          aria-label={label}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+        />
+      ) : image ? (
+        <Image src={image} alt={label} width={2048} height={868} priority={priority} />
+      ) : (
+        <VisualPlaceholder label={label} size="wide" />
+      )}
     </div>
   );
 }

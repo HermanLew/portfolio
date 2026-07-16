@@ -6,6 +6,7 @@ export type CaseArtifact = {
   title: string;
   description: string;
   image?: string;
+  video?: string;
 };
 
 export type CaseSlide = {
@@ -13,6 +14,7 @@ export type CaseSlide = {
   text: string;
   visualLabel: string;
   image?: string;
+  video?: string;
 };
 
 export type CasePrinciple = {
@@ -197,7 +199,7 @@ export const caseStudies: CaseStudy[] = [
         title: "Loyalty without unnecessary complexity",
         description:
           "Instead of introducing multiple reward tiers and gamified progression, we focused on a transparent loyalty model based on repeat property purchases. The simplified mechanics reduced cognitive load while preserving long-term motivation.",
-        image: "/images/projects/bi-club/engagement/1-home.png",
+        video: "/images/projects/bi-club/engagement/4-reward.mp4",
       },
     },
     engagementLoop: {
