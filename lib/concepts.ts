@@ -14,6 +14,10 @@ export const conceptsImageRoute = "/images/concepts";
 export const conceptsImageExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
 export const conceptsVideoExtensions = new Set([".mp4"]);
 
+const conceptAltOverrides: Record<string, string> = {
+  "switcher-animation-for-vpn-client.mp4": "Switcher animation for VPN client",
+};
+
 export function getConceptAspect(width: number, height: number): ConceptImage["aspect"] {
   const ratio = width / Math.max(1, height);
 
@@ -23,6 +27,8 @@ export function getConceptAspect(width: number, height: number): ConceptImage["a
 }
 
 export function getConceptAlt(fileName: string) {
+  if (conceptAltOverrides[fileName]) return conceptAltOverrides[fileName];
+
   return fileName
     .replace(/\.[^.]+$/, "")
     .replace(/[-_]+/g, " ")

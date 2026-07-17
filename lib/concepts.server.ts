@@ -11,7 +11,7 @@ import type { ConceptImage, ConceptImageFile } from "./concepts";
 
 const conceptsImageDirectory = join(process.cwd(), "public", "images", "concepts");
 const conceptImageOrder = [
-  "bi-club-prototype.mp4",
+  "switcher-animation-for-vpn-client.mp4",
   "vpn-client.png",
   "vpn-client-fast-switch.png",
   "streaming_app_brand.png",
