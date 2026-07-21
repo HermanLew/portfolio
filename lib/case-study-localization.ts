@@ -38,7 +38,11 @@ const ruCaseStudyOverrides: Record<string, CaseStudyOverride> = {
     summary:
       "Как ведущий продуктовый дизайнер, я переосмыслил опыт лояльности для девелопера недвижимости: выстроил продуктовую логику вокруг наград, партнеров и сервисов для жителей и создал масштабируемую структуру приложения для долгосрочного вовлечения после покупки квартиры.",
     info: [
-      { label: "url", value: "BI Club" },
+      {
+        label: "link",
+        value: "Bi Club",
+        href: "https://bi.group/ru/special/loyalty?srsltid=AfmBOormVlRzEjiZrHxb2cCz_JymFIdR-VJFrxWmcohn3G1527bHq9qY",
+      },
       { label: "клиент", value: "Bi Group" },
       { label: "год", value: "2025" },
       { label: "роль", value: "Руководитель продуктового дизайна" },
@@ -238,6 +242,7 @@ const ruCaseStudyOverrides: Record<string, CaseStudyOverride> = {
     summary:
       "В Uchi.ru я работал над системами вовлечения, которые помогали одной из крупнейших EdTech-платформ конкурировать за ежедневное внимание детей не только с образовательными продуктами, но и с играми. Вместо отдельных игровых фич мы строили связанную экосистему, которая мотивировала детей возвращаться каждый день, сохраняя обучение в центре опыта.",
     info: [
+      { label: "link", value: "Uchi.ru", href: "https://uchi.ru/" },
       { label: "клиент", value: "UCHI.RU" },
       { label: "год", value: "2020" },
       { label: "роль", value: "Продуктовый дизайнер" },
@@ -546,6 +551,7 @@ const ruCaseStudyOverrides: Record<string, CaseStudyOverride> = {
     summary:
       "В Grabr я участвовал в редизайне core commerce experience для маркетплейса, который связывает покупателей с международными путешественниками. Работа включала снижение трения в order journey, усиление trust signals, основу дизайн-системы и повышение операционной эффективности через внутренние продукты.",
     info: [
+      { label: "link", value: "Grabr", href: "https://grabr.io/en/" },
       { label: "роль", value: "Продуктовый дизайнер" },
       { label: "домен", value: "Cross-border marketplace" },
       { label: "фокус", value: "Product Strategy, Checkout, Trust, Design Systems" },

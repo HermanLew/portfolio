@@ -142,7 +142,11 @@ export const caseStudies: CaseStudy[] = [
       "Joining the project as a Lead Product Designer, I redesigned the loyalty experience for a real estate developer, shaped the product logic across rewards, partners, and resident services, and created a scalable app structure to support long-term customer engagement after property purchase.",
     cover: "/images/projects/bi-club/cover.png",
     info: [
-      { label: "url", value: "BI Club" },
+      {
+        label: "link",
+        value: "Bi Club",
+        href: "https://bi.group/ru/special/loyalty?srsltid=AfmBOormVlRzEjiZrHxb2cCz_JymFIdR-VJFrxWmcohn3G1527bHq9qY",
+      },
       { label: "client", value: "Bi Group" },
       { label: "year", value: "2025" },
       { label: "role", value: "Product Design Lead" },
@@ -371,6 +375,7 @@ export const caseStudies: CaseStudy[] = [
       "Joining Uchi.ru as a Product Designer, I worked on engagement systems that helped one of the largest EdTech platforms compete not only with other educational products, but with games for children's daily attention. Instead of shipping isolated gamification features, we built a connected engagement ecosystem that encouraged children to return every day while keeping learning at the center.",
     cover: "/images/projects/uchi/case/core.png",
     info: [
+      { label: "link", value: "Uchi.ru", href: "https://uchi.ru/" },
       { label: "client", value: "UCHI.RU" },
       { label: "year", value: "2020" },
       { label: "role", value: "Product Designer" },
@@ -978,6 +983,7 @@ export const caseStudies: CaseStudy[] = [
       "Joining Grabr as a Product Designer, I helped redesign the core commerce experience for a marketplace connecting buyers with international travelers. My responsibility extended beyond interface design: I worked on reducing friction throughout the order journey, increasing user trust, establishing a scalable design system, and improving operational efficiency through internal products.",
     cover: "/images/projects/grabr/case/payment-placeholder.png",
     info: [
+      { label: "link", value: "Grabr", href: "https://grabr.io/en/" },
       { label: "role", value: "Product Designer" },
       { label: "domain", value: "Cross-border marketplace" },
       { label: "focus", value: "Product Strategy, Checkout, Trust, Design Systems" },
