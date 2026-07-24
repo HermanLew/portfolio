@@ -292,41 +292,6 @@ button {
   opacity: 0.96;
 }
 
-.hero-meta {
-  position: absolute;
-  z-index: 2;
-  top: 76px;
-  left: 0;
-  right: 0;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 36px;
-  align-items: center;
-  color: rgba(244, 244, 241, 0.45);
-  font-family: var(--mono);
-  font-size: 16px;
-  font-weight: 300;
-  text-transform: uppercase;
-}
-
-.hero-meta::before {
-  grid-column: 2;
-  grid-row: 1;
-  height: 1px;
-  content: "";
-  background: var(--line);
-}
-
-.hero-meta span:first-child {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.hero-meta span:last-child {
-  grid-column: 3;
-  grid-row: 1;
-}
-
 .hero-detail-copy {
   position: relative;
   z-index: 2;
@@ -2476,12 +2441,6 @@ button {
   .hero-detail {
     min-height: auto;
     padding-top: 120px;
-  }
-
-  .hero-meta {
-    top: 48px;
-    gap: 16px;
-    font-size: 12px;
   }
 
   .hero-description {

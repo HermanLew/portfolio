@@ -207,10 +207,6 @@ function HeroSection({
         </h1>
       </motion.div>
       <div className="hero-detail section-shell">
-        <div className="hero-meta" aria-label={t("locationAria")}>
-          <span>{t("location")}</span>
-          <span>{t("timezone")}</span>
-        </div>
         <motion.div
           className="hero-detail-copy"
           initial={reduceMotion ? false : "hidden"}
