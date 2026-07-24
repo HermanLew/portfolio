@@ -10,7 +10,6 @@ export function CaseHorizontalScroller({ slides }: { slides: CaseSlide[] }) {
   const trackRef = useRef<HTMLDivElement | null>(null);
   const [translate, setTranslate] = useState(0);
   const [height, setHeight] = useState("220svh");
-  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const update = () => {
@@ -21,7 +20,6 @@ export function CaseHorizontalScroller({ slides }: { slides: CaseSlide[] }) {
       if (window.matchMedia("(max-width: 900px)").matches) {
         setTranslate(0);
         setHeight("auto");
-        setActiveIndex(0);
         return;
       }
 
@@ -34,8 +32,6 @@ export function CaseHorizontalScroller({ slides }: { slides: CaseSlide[] }) {
 
       setHeight(`${nextHeight}px`);
       setTranslate(progress * maxTranslate);
-      const maxIndex = Math.max(0, slides.length - 1);
-      setActiveIndex(Math.min(maxIndex, Math.round(progress * maxIndex)));
     };
 
     update();
@@ -59,13 +55,6 @@ export function CaseHorizontalScroller({ slides }: { slides: CaseSlide[] }) {
       style={{ "--case-horizontal-height": height } as CSSProperties}
     >
       <div className="case-horizontal-sticky">
-        {slides.length > 1 ? (
-          <div className="case-slider-dots" aria-hidden="true">
-            {slides.map((slide, index) => (
-              <i className={index === activeIndex ? "is-active" : undefined} key={slide.title} />
-            ))}
-          </div>
-        ) : null}
         <div
           className="case-horizontal-track"
           ref={trackRef}

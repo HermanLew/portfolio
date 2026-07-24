@@ -1833,37 +1833,6 @@ button {
   overflow: hidden;
 }
 
-.case-slider-dots {
-  position: absolute;
-  z-index: 8;
-  top: 50%;
-  right: clamp(52px, 5vw, 78px);
-  display: grid;
-  gap: 10px;
-  pointer-events: none;
-  transform: translateY(-50%);
-}
-
-.case-slider-dots i {
-  display: block;
-  width: 9px;
-  height: 9px;
-  border: 1px solid rgba(244, 244, 241, 0.5);
-  border-radius: 999px;
-  background: transparent;
-  opacity: 0.8;
-  transition:
-    background 180ms var(--ease),
-    border-color 180ms var(--ease),
-    opacity 180ms var(--ease);
-}
-
-.case-slider-dots i.is-active {
-  border-color: rgba(244, 244, 241, 0.94);
-  background: rgba(244, 244, 241, 0.94);
-  opacity: 1;
-}
-
 .case-horizontal-track {
   display: flex;
   gap: 1px;
@@ -2342,10 +2311,6 @@ button {
   }
 
   .case-dots {
-    display: none;
-  }
-
-  .case-slider-dots {
     display: none;
   }
 
